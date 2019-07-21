@@ -9,5 +9,6 @@ namespace PeriodicTable.Models
     {
         public int GroupId { get; set; }
         public virtual List<Element> Elements{get; set;}
+
     }
 }

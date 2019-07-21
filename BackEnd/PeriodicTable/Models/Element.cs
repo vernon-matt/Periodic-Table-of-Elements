@@ -11,11 +11,13 @@ namespace PeriodicTable.Models
         public int AtomicNumber { get; set; }
         public string Symbol { get; set; }
         public string Name { get; set; }
-        public int AtomicWeight { get; set; }
+        public double AtomicWeight { get; set; }
         public string Class { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        //public virtual Group Group { get; set; }
         public int GroupdId { get; set; }
+        //public virtual Period Period { get; set; }
         public int PeriodId { get; set; }
     }
 }
