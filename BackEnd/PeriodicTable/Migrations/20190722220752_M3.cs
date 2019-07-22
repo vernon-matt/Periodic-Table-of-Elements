@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PeriodicTable.Migrations
 {
-    public partial class M1 : Migration
+    public partial class M3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,9 +44,8 @@ namespace PeriodicTable.Migrations
                     Class = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    GroupdId = table.Column<int>(nullable: false),
-                    PeriodId = table.Column<int>(nullable: false),
-                    GroupId = table.Column<int>(nullable: true)
+                    GroupId = table.Column<int>(nullable: false),
+                    PeriodId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +55,7 @@ namespace PeriodicTable.Migrations
                         column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "GroupId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Elements_Periods_PeriodId",
                         column: x => x.PeriodId,
@@ -77,8 +76,8 @@ namespace PeriodicTable.Migrations
 
             migrationBuilder.InsertData(
                 table: "Elements",
-                columns: new[] { "ElementId", "AtomicNumber", "AtomicWeight", "Class", "Description", "GroupId", "GroupdId", "Image", "Name", "PeriodId", "Symbol" },
-                values: new object[] { 1, 1, 1.07794, "NonMetal", "HydrogenHydrogen", null, 1, "https://metaphysicalexperience.files.wordpress.com/2010/06/physical-universe.jpg", "Hydrogen", 1, "H" });
+                columns: new[] { "ElementId", "AtomicNumber", "AtomicWeight", "Class", "Description", "GroupId", "Image", "Name", "PeriodId", "Symbol" },
+                values: new object[] { 1, 1, 1.07794, "NonMetal", "HydrogenHydrogen", 1, "https://metaphysicalexperience.files.wordpress.com/2010/06/physical-universe.jpg", "Hydrogen", 1, "H" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Elements_GroupId",

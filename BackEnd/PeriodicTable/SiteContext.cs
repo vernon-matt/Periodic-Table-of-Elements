@@ -28,7 +28,7 @@ namespace PeriodicTable
                 new Element
                 {
                     ElementId = 1,
-                    GroupdId = 1,
+                    GroupId = 1,
                     PeriodId = 1,
                     Class = "NonMetal",
                     Name = "Hydrogen",
