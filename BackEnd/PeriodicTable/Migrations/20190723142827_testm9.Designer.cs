@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeriodicTable;
 
 namespace PeriodicTable.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190723142827_testm9")]
+    partial class testm9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +90,7 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 35, AtomicNumber = 9, AtomicWeight = 18.998, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Flourine", PeriodId = 2, Symbol = "F" },
                         new { ElementId = 36, AtomicNumber = 10, AtomicWeight = 20.18, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Neon", PeriodId = 2, Symbol = "Ne" },
                         new { ElementId = 37, AtomicNumber = 11, AtomicWeight = 22.99, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Sodium", PeriodId = 3, Symbol = "Na" },
-                        new { ElementId = 38, AtomicNumber = 12, AtomicWeight = 24.305, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Magnesium", PeriodId = 3, Symbol = "Mg" },
+                        new { ElementId = 38, AtomicNumber = 12, AtomicWeight = 24.305, Class = "TM", Description = "", GroupId = 2, Image = "", Name = "Magnesium", PeriodId = 3, Symbol = "Mg" },
                         new { ElementId = 39, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 3, Image = "", Name = "ADD NEW", PeriodId = 3, Symbol = "+" },
                         new { ElementId = 40, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 4, Image = "", Name = "ADD NEW", PeriodId = 3, Symbol = "+" },
                         new { ElementId = 41, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 5, Image = "", Name = "ADD NEW", PeriodId = 3, Symbol = "+" },
@@ -140,43 +142,7 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 87, AtomicNumber = 51, AtomicWeight = 121.76, Class = "M", Description = "", GroupId = 15, Image = "", Name = "Antimony", PeriodId = 5, Symbol = "Sb" },
                         new { ElementId = 88, AtomicNumber = 52, AtomicWeight = 127.6, Class = "M", Description = "", GroupId = 16, Image = "", Name = "Tellurium", PeriodId = 5, Symbol = "Te" },
                         new { ElementId = 89, AtomicNumber = 53, AtomicWeight = 126.904, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Iodine", PeriodId = 5, Symbol = "I" },
-                        new { ElementId = 90, AtomicNumber = 54, AtomicWeight = 131.294, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Zenon", PeriodId = 5, Symbol = "Xe" },
-                        new { ElementId = 91, AtomicNumber = 55, AtomicWeight = 132.905, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Cesium", PeriodId = 6, Symbol = "Cs" },
-                        new { ElementId = 92, AtomicNumber = 56, AtomicWeight = 137.328, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Barium", PeriodId = 6, Symbol = "Ba" },
-                        new { ElementId = 93, AtomicNumber = 0, AtomicWeight = 0.0, Class = "L", Description = "", GroupId = 3, Image = "", Name = "Lanthanides", PeriodId = 6, Symbol = "57-71" },
-                        new { ElementId = 94, AtomicNumber = 72, AtomicWeight = 178.49, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Hafnium", PeriodId = 6, Symbol = "Hf" },
-                        new { ElementId = 95, AtomicNumber = 73, AtomicWeight = 180.948, Class = "TM", Description = "", GroupId = 5, Image = "", Name = "Tantalum", PeriodId = 6, Symbol = "Ta" },
-                        new { ElementId = 96, AtomicNumber = 74, AtomicWeight = 183.948, Class = "TM", Description = "", GroupId = 6, Image = "", Name = "Tungsten", PeriodId = 6, Symbol = "W" },
-                        new { ElementId = 97, AtomicNumber = 75, AtomicWeight = 186.207, Class = "TM", Description = "", GroupId = 7, Image = "", Name = "Rhenium", PeriodId = 6, Symbol = "Re" },
-                        new { ElementId = 98, AtomicNumber = 76, AtomicWeight = 190.23, Class = "TM", Description = "", GroupId = 8, Image = "", Name = "Osminium", PeriodId = 6, Symbol = "Os" },
-                        new { ElementId = 99, AtomicNumber = 77, AtomicWeight = 192.217, Class = "TM", Description = "", GroupId = 9, Image = "", Name = "Iridium", PeriodId = 6, Symbol = "Ir" },
-                        new { ElementId = 100, AtomicNumber = 78, AtomicWeight = 195.085, Class = "TM", Description = "", GroupId = 10, Image = "", Name = "Platinum", PeriodId = 6, Symbol = "Pt" },
-                        new { ElementId = 101, AtomicNumber = 79, AtomicWeight = 196.967, Class = "TM", Description = "", GroupId = 11, Image = "", Name = "Gold", PeriodId = 6, Symbol = "Au" },
-                        new { ElementId = 102, AtomicNumber = 80, AtomicWeight = 200.592, Class = "TM", Description = "", GroupId = 12, Image = "", Name = "Mercury", PeriodId = 6, Symbol = "Hg" },
-                        new { ElementId = 103, AtomicNumber = 81, AtomicWeight = 204.383, Class = "PTM", Description = "", GroupId = 13, Image = "", Name = "Thallium", PeriodId = 6, Symbol = "Ti" },
-                        new { ElementId = 104, AtomicNumber = 82, AtomicWeight = 207.2, Class = "PTM", Description = "", GroupId = 14, Image = "", Name = "Lead", PeriodId = 6, Symbol = "Pb" },
-                        new { ElementId = 105, AtomicNumber = 83, AtomicWeight = 208.98, Class = "PTM", Description = "", GroupId = 15, Image = "", Name = "Bismuth", PeriodId = 6, Symbol = "BI" },
-                        new { ElementId = 106, AtomicNumber = 84, AtomicWeight = 208.982, Class = "PTM", Description = "", GroupId = 16, Image = "", Name = "Polonium", PeriodId = 6, Symbol = "Po" },
-                        new { ElementId = 107, AtomicNumber = 85, AtomicWeight = 208.982, Class = "M", Description = "", GroupId = 17, Image = "", Name = "Astatine", PeriodId = 6, Symbol = "At" },
-                        new { ElementId = 108, AtomicNumber = 86, AtomicWeight = 208.982, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Radon", PeriodId = 6, Symbol = "Rn" },
-                        new { ElementId = 109, AtomicNumber = 87, AtomicWeight = 223.02, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Francium", PeriodId = 7, Symbol = "Fr" },
-                        new { ElementId = 110, AtomicNumber = 88, AtomicWeight = 226.025, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Radium", PeriodId = 7, Symbol = "Ra" },
-                        new { ElementId = 111, AtomicNumber = 0, AtomicWeight = 0.0, Class = "A", Description = "", GroupId = 3, Image = "", Name = "Actinides", PeriodId = 7, Symbol = "89-103" },
-                        new { ElementId = 112, AtomicNumber = 104, AtomicWeight = 261.0, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Rutherfordium", PeriodId = 7, Symbol = "Rf" },
-                        new { ElementId = 113, AtomicNumber = 105, AtomicWeight = 262.0, Class = "TM", Description = "", GroupId = 5, Image = "", Name = "Dubnium", PeriodId = 7, Symbol = "Db" },
-                        new { ElementId = 114, AtomicNumber = 106, AtomicWeight = 266.0, Class = "TM", Description = "", GroupId = 6, Image = "", Name = "Seaborgium", PeriodId = 7, Symbol = "Sg" },
-                        new { ElementId = 115, AtomicNumber = 107, AtomicWeight = 264.0, Class = "TM", Description = "", GroupId = 7, Image = "", Name = "Bohrlum", PeriodId = 7, Symbol = "Bh" },
-                        new { ElementId = 116, AtomicNumber = 108, AtomicWeight = 269.0, Class = "TM", Description = "", GroupId = 8, Image = "", Name = "Hasslum", PeriodId = 7, Symbol = "Hs" },
-                        new { ElementId = 117, AtomicNumber = 109, AtomicWeight = 268.0, Class = "UP", Description = "", GroupId = 9, Image = "", Name = "Meltnerium", PeriodId = 7, Symbol = "Mt" },
-                        new { ElementId = 118, AtomicNumber = 110, AtomicWeight = 269.0, Class = "UP", Description = "", GroupId = 10, Image = "", Name = "Darmstadtium", PeriodId = 7, Symbol = "Ds" },
-                        new { ElementId = 119, AtomicNumber = 111, AtomicWeight = 272.0, Class = "UP", Description = "", GroupId = 11, Image = "", Name = "Roentgenium", PeriodId = 7, Symbol = "Rg" },
-                        new { ElementId = 120, AtomicNumber = 112, AtomicWeight = 277.0, Class = "TM", Description = "", GroupId = 12, Image = "", Name = "Coperniclum", PeriodId = 7, Symbol = "Cn" },
-                        new { ElementId = 121, AtomicNumber = 113, AtomicWeight = 0.0, Class = "UP", Description = "", GroupId = 13, Image = "", Name = "Ununtrium", PeriodId = 7, Symbol = "Uut" },
-                        new { ElementId = 122, AtomicNumber = 114, AtomicWeight = 289.0, Class = "PTM", Description = "", GroupId = 14, Image = "", Name = "Flernovium", PeriodId = 7, Symbol = "Fl" },
-                        new { ElementId = 123, AtomicNumber = 115, AtomicWeight = 0.0, Class = "UP", Description = "", GroupId = 15, Image = "", Name = "Ununpentium", PeriodId = 7, Symbol = "Uup" },
-                        new { ElementId = 124, AtomicNumber = 116, AtomicWeight = 298.0, Class = "UP", Description = "", GroupId = 16, Image = "", Name = "Livermorium", PeriodId = 7, Symbol = "Lv" },
-                        new { ElementId = 125, AtomicNumber = 117, AtomicWeight = 0.0, Class = "UP", Description = "", GroupId = 17, Image = "", Name = "Ununseptium", PeriodId = 7, Symbol = "Uus" },
-                        new { ElementId = 126, AtomicNumber = 118, AtomicWeight = 0.0, Class = "UP", Description = "", GroupId = 18, Image = "", Name = "Ununoctium", PeriodId = 7, Symbol = "Uuo" }
+                        new { ElementId = 90, AtomicNumber = 54, AtomicWeight = 131.294, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Zenon", PeriodId = 5, Symbol = "Xe" }
                     );
                 });
 

@@ -180,15 +180,15 @@ elename {
 }
 
 .L {
-    background-color: bisque;
+    background-color: rgb(247, 201, 146);
 }
 
 .A {
-    background-color: lavender;
+    background-color: rgb(176, 176, 245);
 }
 
 .UP {
-    background-color: rgb(85, 100, 85);
+    background-color: rgb(78, 129, 78);
 }
 
 .NON {
@@ -197,4 +197,12 @@ elename {
 
 .NON:hover{
     background-color: rgb(0, 189, 189);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    width: 15vw;
 }
