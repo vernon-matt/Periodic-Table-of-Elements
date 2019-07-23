@@ -1,0 +1,192 @@
+elements{
+    display: grid;
+    max-width: 99vw;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-row-gap: 1vh;
+}
+
+ele {
+    display: flex;
+    flex-direction: column;
+    width: 5vw;
+    border-radius: 3px;
+    text-align: center;
+    color: white;
+    box-shadow: .5px .7px 5px black;
+}
+
+ele:hover {
+    width: 5.2vw;
+    background: linear-gradient(to right, yellow 0%,green 100%);
+    background-blend-mode: saturation;
+}
+
+atomn{
+    font-size: 1vw;
+}
+
+sym {
+    font-size: 1.5vw;
+}
+
+atomw {
+    font-size: .7vw;
+}
+
+elename {
+    font-size: .7vw;
+}
+
+.Group1 {
+
+}
+
+.Group2 {
+
+}
+
+.Group3 {
+
+}
+
+.Group4 {
+
+}
+
+.Group5 {
+
+}
+
+.Group6 {
+
+}
+
+.Group7 {
+
+}
+
+.Group8 {
+
+}
+
+.Group9 {
+
+}
+
+.Group10 {
+
+}
+
+.Group11 {
+
+}
+
+.Group12 {
+
+}
+
+.Group13 {
+
+}
+
+.Group14 {
+
+}
+
+.Group15 {
+
+}
+
+.Group16 {
+
+}
+
+.Group17 {
+
+}
+
+.Group18 {
+
+}
+
+.Period1 {
+
+}
+
+.Period2 {
+    
+}
+
+.Period3 {
+    
+}
+
+.Period4 {
+
+}
+
+.Period5 {
+    
+}
+
+.Period6 {
+    
+}
+
+.Period7 {
+    
+}
+
+.AM {
+    background-color: red;
+}
+
+.AEM {
+    background-color: rgb(255, 115, 0);
+}
+
+.TM {
+    background-color: rgb(255, 187, 0);
+}
+
+.PTM {
+    background-color: yellow;
+}
+
+.M {
+    background-color: greenyellow;
+}
+
+.PN {
+    background-color: aquamarine;
+}
+
+.DN {
+    background-color: rgb(0, 60, 255);
+}
+
+.NG {
+    background-color: purple;
+}
+
+.L {
+    background-color: bisque;
+}
+
+.A {
+    background-color: lavender;
+}
+
+.UP {
+    background-color: rgb(85, 100, 85);
+}
+
+.NON {
+    background-color: rgb(196, 196, 196);
+}
+
+.NON:hover {
+    background-color: rgb(0, 189, 189);
+}
+
+/*# sourceMappingURL=/stylez.8b529e3a.css.map */

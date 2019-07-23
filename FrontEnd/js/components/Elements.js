@@ -1,17 +1,18 @@
 export default function Elements(elementlist){
     return `
-    <h1>Elements</h1>
-    <ul>
+
+    <elements>  
         ${elementlist.map(element => {
         return `
-            <div class="${element.class} Group${element.groupId} Period${element.periodId}">
-                <p>${element.atomicNumber}</p>
-                <p>${element.symbol}</p>
-                <p>${element.atomicWeight}</p>
-                <p>${element.name}</p>
-            </div>
-        `      
-        })     
-    }
+                <ele class="${element.class} Group${element.groupId} Period${element.periodId}">
+                    <atomn>${element.atomicNumber}</atomn>
+                    <sym>${element.symbol}</sym>
+                    <atomw>${element.atomicWeight}</atomw>
+                    <elename>${element.name}</elename>
+                </ele>
+                `      
+            })     
+            .join("")}
+    </elements>
     `
 }
