@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeriodicTable;
 
 namespace PeriodicTable.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190723012418_testm7")]
+    partial class testm7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,25 +106,7 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 51, AtomicNumber = 15, AtomicWeight = 30.974, Class = "PN", Description = "", GroupId = 15, Image = "", Name = "Phosphorus", PeriodId = 3, Symbol = "P" },
                         new { ElementId = 52, AtomicNumber = 16, AtomicWeight = 32.066, Class = "PN", Description = "", GroupId = 16, Image = "", Name = "Sulfur", PeriodId = 3, Symbol = "S" },
                         new { ElementId = 53, AtomicNumber = 17, AtomicWeight = 35.453, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Chlorine", PeriodId = 3, Symbol = "Al" },
-                        new { ElementId = 54, AtomicNumber = 18, AtomicWeight = 39.948, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Argon", PeriodId = 3, Symbol = "Ar" },
-                        new { ElementId = 55, AtomicNumber = 19, AtomicWeight = 39.098, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Potassium", PeriodId = 4, Symbol = "K" },
-                        new { ElementId = 56, AtomicNumber = 20, AtomicWeight = 40.078, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Calcium", PeriodId = 4, Symbol = "Ca" },
-                        new { ElementId = 57, AtomicNumber = 21, AtomicWeight = 44.956, Class = "TM", Description = "", GroupId = 3, Image = "", Name = "Scandium", PeriodId = 4, Symbol = "Sc" },
-                        new { ElementId = 58, AtomicNumber = 22, AtomicWeight = 47.867, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Titanium", PeriodId = 4, Symbol = "Ti" },
-                        new { ElementId = 59, AtomicNumber = 23, AtomicWeight = 50.942, Class = "TM", Description = "", GroupId = 5, Image = "", Name = "Vanadium", PeriodId = 4, Symbol = "V" },
-                        new { ElementId = 60, AtomicNumber = 24, AtomicWeight = 51.996, Class = "TM", Description = "", GroupId = 6, Image = "", Name = "Chromium", PeriodId = 4, Symbol = "Cr" },
-                        new { ElementId = 61, AtomicNumber = 25, AtomicWeight = 54.938, Class = "TM", Description = "", GroupId = 7, Image = "", Name = "Manganese", PeriodId = 4, Symbol = "Mn" },
-                        new { ElementId = 62, AtomicNumber = 26, AtomicWeight = 55.845, Class = "TM", Description = "", GroupId = 8, Image = "", Name = "Iron", PeriodId = 4, Symbol = "Fe" },
-                        new { ElementId = 63, AtomicNumber = 27, AtomicWeight = 58.933, Class = "TM", Description = "", GroupId = 9, Image = "", Name = "Cobalt", PeriodId = 4, Symbol = "Co" },
-                        new { ElementId = 64, AtomicNumber = 28, AtomicWeight = 58.693, Class = "TM", Description = "", GroupId = 10, Image = "", Name = "Nickel", PeriodId = 4, Symbol = "Ni" },
-                        new { ElementId = 65, AtomicNumber = 29, AtomicWeight = 63.546, Class = "TM", Description = "", GroupId = 11, Image = "", Name = "Copper", PeriodId = 4, Symbol = "Cu" },
-                        new { ElementId = 66, AtomicNumber = 30, AtomicWeight = 65.38, Class = "TM", Description = "", GroupId = 12, Image = "", Name = "Zinc", PeriodId = 4, Symbol = "Zn" },
-                        new { ElementId = 67, AtomicNumber = 31, AtomicWeight = 69.723, Class = "PTM", Description = "", GroupId = 13, Image = "", Name = "Gallium", PeriodId = 4, Symbol = "Ga" },
-                        new { ElementId = 68, AtomicNumber = 32, AtomicWeight = 72.631, Class = "M", Description = "", GroupId = 14, Image = "", Name = "Germanium", PeriodId = 4, Symbol = "Ge" },
-                        new { ElementId = 69, AtomicNumber = 33, AtomicWeight = 74.922, Class = "M", Description = "", GroupId = 15, Image = "", Name = "Arsenic", PeriodId = 4, Symbol = "As" },
-                        new { ElementId = 70, AtomicNumber = 34, AtomicWeight = 78.971, Class = "PN", Description = "", GroupId = 16, Image = "", Name = "Selenium", PeriodId = 4, Symbol = "Se" },
-                        new { ElementId = 71, AtomicNumber = 35, AtomicWeight = 79.904, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Bromine", PeriodId = 4, Symbol = "Br" },
-                        new { ElementId = 72, AtomicNumber = 36, AtomicWeight = 83.798, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Krypton", PeriodId = 4, Symbol = "Kr" }
+                        new { ElementId = 54, AtomicNumber = 18, AtomicWeight = 39.948, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Argon", PeriodId = 3, Symbol = "Ar" }
                     );
                 });
 

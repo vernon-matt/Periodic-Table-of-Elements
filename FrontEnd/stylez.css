@@ -1,32 +1,42 @@
 elements{
     display: grid;
+    width: 99vw;
     max-width: 99vw;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw  5vw 5vw 5vw;
+    grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
     grid-row-gap: 1vh;
+    grid-column-gap: .5vw;
 }
 
 ele {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 5vw;
-    border-radius: 3px;
+    height: 10vh;
     text-align: center;
     color: white;
     box-shadow: .5px .7px 5px black;
 }
 
 ele:hover {
-    width: 5.2vw;
-    background: linear-gradient(to right, yellow 0%,green 100%);
-    background-blend-mode: saturation;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:7vw;
+    height: 14vh;
+    box-shadow: 0px 0px 7px 4px black;
+    z-index: 0;
+    transform: scale(1.5);
 }
 
 atomn{
-    font-size: 1vw;
+    font-size: .7vw;
 }
 
 sym {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
+    font-weight: 1000;
 }
 
 atomw {
@@ -150,19 +160,19 @@ elename {
 }
 
 .PTM {
-    background-color: yellow;
+    background-color: rgb(238, 234, 1);
 }
 
 .M {
-    background-color: greenyellow;
+    background-color: rgb(138, 224, 9);
 }
 
 .PN {
-    background-color: aquamarine;
+    background-color: rgb(1, 202, 135);
 }
 
 .DN {
-    background-color: rgb(0, 60, 255);
+    background-color: rgb(79, 117, 241);
 }
 
 .NG {
@@ -185,6 +195,6 @@ elename {
     background-color: rgb(196, 196, 196);
 }
 
-.NON:hover {
+.NON:hover{
     background-color: rgb(0, 189, 189);
 }
