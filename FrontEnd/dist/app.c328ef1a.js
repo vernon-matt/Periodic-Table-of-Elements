@@ -126,8 +126,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Elements;
 
 function Elements(elementlist) {
-  return "\n\n    <elements>  \n        ".concat(elementlist.map(function (element) {
-    return "\n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn>").concat(element.atomicNumber, "</atomn>\n                    <sym>").concat(element.symbol, "</sym>\n                    <atomw>").concat(element.atomicWeight, "</atomw>\n                    <elename>").concat(element.name, "</elename>\n                </ele>\n                ");
+  return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+    return "\n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"select_element_by_id\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"select_element_by_id\">").concat(element.symbol, "</sym>\n                    <atomw class=\"select_element_by_id\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"select_element_by_id\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                </ele>\n                ");
   }).join(""), "\n    </elements>\n    ");
 }
 },{}],"js/api/api-actions.js":[function(require,module,exports) {
@@ -152,6 +152,32 @@ var _default = {
   getRequest: getRequest
 };
 exports.default = _default;
+},{}],"js/components/ElementByClass.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ElementByClass;
+
+function ElementByClass(elementlist) {
+  return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+    return "\n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn>").concat(element.atomicNumber, "</atomn>\n                    <sym>").concat(element.symbol, "</sym>\n                    <atomw>").concat(element.atomicWeight, "</atomw>\n                    <elename>").concat(element.name, "</elename>\n                </ele>\n                ");
+  }).join(""), "\n    </elements>\n    ");
+}
+},{}],"js/components/Element.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Element;
+
+function Element(selement) {
+  return "\n            <selement>\n                <sele class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            <img src=\"").concat(selement.image, "\">\n            </selement>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n            </selementd>\n                ");
+}
+
+;
 },{}],"app.js":[function(require,module,exports) {
 "use strict";
 
@@ -159,12 +185,18 @@ var _Elements = _interopRequireDefault(require("./js/components/Elements"));
 
 var _apiActions = _interopRequireDefault(require("./js/api/api-actions"));
 
+var _ElementByClass = _interopRequireDefault(require("./js/components/ElementByClass"));
+
+var _Element = _interopRequireDefault(require("./js/components/Element"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 pageBuild();
 
 function pageBuild() {
   elements();
+  elementByClass();
+  element();
 }
 
 ;
@@ -178,7 +210,37 @@ function elements() {
     });
   });
 }
-},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+;
+
+function elementByClass() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("select_element_by_class")) {
+      var _element = event.target.parentElement.querySelector(".select_element_by_class_value").value;
+      console.log(_element);
+
+      _apiActions.default.getRequest("https://localhost:44330/api/elements/" + _element, function (elementlist) {
+        document.getElementById('component1').innerHTML = (0, _ElementByClass.default)(elementlist);
+      });
+    }
+  });
+}
+
+;
+
+function element() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("select_element_by_id")) {
+      var elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
+      console.log(elementId);
+
+      _apiActions.default.getRequest("https://localhost:44330/api/elements/element/" + elementId, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _Element.default)(selement);
+      });
+    }
+  });
+}
+},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

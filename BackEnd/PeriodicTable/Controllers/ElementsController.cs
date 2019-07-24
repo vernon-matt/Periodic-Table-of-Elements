@@ -28,23 +28,18 @@ namespace PeriodicTable.Controllers
             return _context.Elements;
         }
 
-        // GET: api/Elements/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetElement([FromRoute] int id)
+        // GET: api/Elements/Class
+        [HttpGet("{Class}")]
+        public IEnumerable<Element> GetElementsByClass([FromRoute(Name = "Class")] string Class)
+        {            
+            return _context.Elements.Where(e => e.Class == Class);
+        }
+
+        // GET: api/Elements/id
+        [HttpGet("element/{id}")]
+        public Element GetElementById([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var element = await _context.Elements.FindAsync(id);
-
-            if (element == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(element);
+            return _context.Elements.Single(e=> e.ElementId == id);
         }
 
         // PUT: api/Elements/5
