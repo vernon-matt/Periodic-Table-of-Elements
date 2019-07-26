@@ -7,14 +7,45 @@
     <title>Document</title>
 </head>
 <body>
-        <nav>
-            <ul>
-                <li id="nav__Elements">Elements</li>
-                <li id="">Classes</li>
-            </ul>
-        </nav>
+    <div class="navbar">
+        <navbutton id="nav__Elements">Elements</navbutton>
+        <navbutton>About</navbutton>  
+        <div class="dropdown">
+          <navbutton class="dropbtn">Classes 
+            <i class="fa fa-caret-down"></i>
+          </navbutton>
+          <div class="dropdown-content">
+            <navbutton class="select_element_by_class">Alkali Metal
+                    <input class='select_element_by_class_value' type='hidden' value="AM">
+            </navbutton>
+            <navbutton class="select_element_by_class">Alkaline Earth Metal
+                    <input class='select_element_by_class_value' type='hidden' value="AEM">
+            </navbutton>
+            <navbutton class="select_element_by_class">Transition Metal
+                    <input class='select_element_by_class_value' type='hidden' value="TM">
+            </navbutton>
+            <navbutton class="select_element_by_class">Post-Transition Metal
+                    <input class='select_element_by_class_value' type='hidden' value="PTM">
+            </navbutton>
+            <navbutton class="select_element_by_class">Metalloid
+                    <input class='select_element_by_class_value' type='hidden' value="M">
+            </navbutton>
+            <navbutton class="select_element_by_class">Polyatomic Nonmetal
+                <input class='select_element_by_class_value' type='hidden' value="PN">
+            </navbutton>
+            <navbutton class="select_element_by_class">Diatomic Nonmetal
+                <input class='select_element_by_class_value' type='hidden' value="DN">
+            </navbutton>  
+            <navbutton class="select_element_by_class">Noble Gas
+                <input class='select_element_by_class_value' type='hidden' value="NG">
+            </navbutton> 
+            <navbutton class="select_element_by_class">Unknown Properties
+                <input class='select_element_by_class_value' type='hidden' value="UP">
+            </navbutton>
+          </div>
+        </div> 
+      </div>
     <div id="component1">
-
     </div>
 </body>
 <script src="app.js"></script>

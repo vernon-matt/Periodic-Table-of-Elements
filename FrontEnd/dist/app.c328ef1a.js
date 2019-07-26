@@ -127,7 +127,18 @@ exports.default = Elements;
 
 function Elements(elementlist) {
   return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
-    return "\n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"select_element_by_id\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"select_element_by_id\">").concat(element.symbol, "</sym>\n                    <atomw class=\"select_element_by_id\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"select_element_by_id\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                </ele>\n                ");
+    if (element.class != "NON") {
+      var select = "select_element_by_id";
+    }
+
+    ;
+
+    if (element.class == "NON") {
+      var add = "add_element";
+    }
+
+    ;
+    return "          \n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, " ").concat(add, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, " ").concat(add, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, " ").concat(add, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, " ").concat(add, "\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                </ele>\n                ");
   }).join(""), "\n    </elements>\n    ");
 }
 },{}],"js/api/api-actions.js":[function(require,module,exports) {
@@ -178,6 +189,19 @@ function Element(selement) {
 }
 
 ;
+},{}],"js/components/AddElement.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddElement;
+
+function AddElement(selement) {
+  return "\n            <h1> Create your Element </h1>\n            <selement>\n                <sele class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            </selement>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n            </selementd>\n                ");
+}
+
+;
 },{}],"app.js":[function(require,module,exports) {
 "use strict";
 
@@ -189,6 +213,8 @@ var _ElementByClass = _interopRequireDefault(require("./js/components/ElementByC
 
 var _Element = _interopRequireDefault(require("./js/components/Element"));
 
+var _AddElement = _interopRequireDefault(require("./js/components/AddElement"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 pageBuild();
@@ -197,9 +223,10 @@ function pageBuild() {
   elements();
   elementByClass();
   element();
+  addElement();
 }
 
-;
+; //Displays All Elements
 
 function elements() {
   var app = document.getElementById('component1');
@@ -211,12 +238,12 @@ function elements() {
   });
 }
 
-;
+; //Displays Elements By Class
 
 function elementByClass() {
-  document.querySelector('#component1').addEventListener("click", function () {
+  document.querySelector('.navbar').addEventListener("click", function () {
     if (event.target.classList.contains("select_element_by_class")) {
-      var _element = event.target.parentElement.querySelector(".select_element_by_class_value").value;
+      var _element = event.target.querySelector(".select_element_by_class_value").value;
       console.log(_element);
 
       _apiActions.default.getRequest("https://localhost:44330/api/elements/" + _element, function (elementlist) {
@@ -226,7 +253,7 @@ function elementByClass() {
   });
 }
 
-;
+; //Displays a Single Clicked Element From the Table
 
 function element() {
   document.querySelector('#component1').addEventListener("click", function () {
@@ -239,8 +266,21 @@ function element() {
       });
     }
   });
+} //Put Request for Elements of Class "NON" from Table (Add New)
+
+
+function addElement() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("add_element")) {
+      var elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
+
+      _apiActions.default.getRequest("https://localhost:44330/api/elements/element/" + elementId, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _AddElement.default)(selement);
+      });
+    }
+  });
 }
-},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -268,7 +308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53962" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57100" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
