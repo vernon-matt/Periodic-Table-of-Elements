@@ -5,12 +5,12 @@
 
 elements {
     display: grid;
-    width: 99vw;
-    max-width: 99vw;
+    width: 100vw;
+    max-width: 100vw;
     grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw  5vw 5vw 5vw;
     grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
     grid-row-gap: 1vh;
-    grid-column-gap: .5vw;
+    grid-column-gap: .587vw;
 }
 
 ele {
@@ -204,14 +204,13 @@ elename {
 .NON:hover{
     background-color: rgb(0, 189, 189);
 }
-/* Navbar container */
+
 .navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
   }
   
-  /* Links inside the navbar */
   .navbar navbutton {
     float: left;
     font-size: 16px;
@@ -221,13 +220,11 @@ elename {
     text-decoration: none;
   }
   
-  /* The dropdown container */
   .dropdown {
     float: left;
     overflow: hidden;
   }
   
-  /* Dropdown button */
   .dropdown .dropbtn {
     font-size: 16px; 
     border: none;
@@ -235,16 +232,14 @@ elename {
     color: white;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit;
+    margin: 0; 
   }
   
-  /* Add a red background color to navbar links on hover */
   .navbar navbutton:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color:blue;
   }
   
-  /* Dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -310,4 +305,47 @@ sele atomw {
 
 sele elename{
     font-size: 3vw;
+}
+
+.addele {
+    padding-top: 10vh;
+}
+
+classbox {
+    display: grid;
+    grid-template-columns: 40vw;
+    grid-template-rows: auto;
+}
+
+class {
+    display: flex;
+    text-align: left;
+    width: 15vw;
+    padding-bottom: 1vh;
+}
+
+classcolor {
+    width: 1vw;
+    height: 2.5vh;
+}
+
+classname {
+    padding-left: 1vw;
+}
+
+class:hover {
+    width: 40vw;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    cursor: pointer;
+}
+
+class:hover classname{
+    font-size: 3vw;
+}
+
+class:hover classcolor{
+    padding-top: 4vh;
+    padding-right: 8vw;
+    font-size: 25px;
 }
