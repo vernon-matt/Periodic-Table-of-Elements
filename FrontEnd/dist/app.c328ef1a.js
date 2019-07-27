@@ -159,8 +159,25 @@ function getRequest(location, callback) {
   });
 }
 
+function putRequest(location, requestBody, callback) {
+  fetch(location, {
+    method: "PUT",
+    body: JSON.stringify(requestBody),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (jsonData) {
+    return callback(jsonData);
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
 var _default = {
-  getRequest: getRequest
+  getRequest: getRequest,
+  putRequest: putRequest
 };
 exports.default = _default;
 },{}],"js/components/ElementByClass.js":[function(require,module,exports) {
@@ -198,7 +215,46 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = AddElement;
 
 function AddElement(selement) {
-  return "\n            <h1> Start by Choosing an Element Class From the List Below</h1>\n            <selement class=\"addele\">\n                <classbox>\n                    <class><classcolor style=\"background-color: red;\"></classcolor><classname>Alkali Metal</classname></class> \n                    <class><classcolor style=\"background-color: rgb(255, 115, 0);\"></classcolor><classname>Alkaline Earth Metal</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(255, 187, 0);\"></classcolor><classname>Transition Metal</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(238, 234, 1);\"></classcolor><classname>Post-Transition Metal</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(138, 224, 9);\"></classcolor><classname>Metalloid</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(1, 202, 135);\"></classcolor><classname>Polyatomic Nonmetal</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(79, 117, 241);\"></classcolor><classname>Diatomic Nonmetal</classname></class>                   \n                    <class><classcolor style=\"background-color: purple;\"></classcolor><classname>Noble Gas</classname></class>\n                    <class><classcolor style=\"background-color: rgb(247, 201, 146);\"></classcolor><classname>Lanthanide</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(176, 176, 245);\"></classcolor><classname>Actinide</classname></class>                   \n                    <class><classcolor style=\"background-color: rgb(78, 129, 78);\"></classcolor><classname>Unknown Properties</classname></class>                                      \n                </classbox>\n                <sele class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <p>A newly discovered element!</p>\n                </sele>\n            </selement>\n                ");
+  return "\n            <h1> Start by Choosing an Element Class From the List Below</h1>\n            <selement class=\"addele\">\n                <classbox>\n                    <class class=\"addele1\"><classcolor style=\"background-color: red;\"></classcolor><classname>Alkali Metal\n                    <input class='add_element_class' type='hidden' value=\"AM\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                    </classname></class> \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(255, 115, 0);\"></classcolor><classname>Alkaline Earth Metal</classname>\n                    <input class='add_element_class' type='hidden' value=\"AEM\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(255, 187, 0);\"></classcolor><classname>Transition Metal\n                    <input class='add_element_class' type='hidden' value=\"TM\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(238, 234, 1);\"></classcolor><classname>Post-Transition Metal\n                    <input class='add_element_class' type='hidden' value=\"PTM\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(138, 224, 9);\"></classcolor><classname>Metalloid\n                    <input class='add_element_class' type='hidden' value=\"M\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(1, 202, 135);\"></classcolor><classname>Polyatomic Nonmetal\n                    <input class='add_element_class' type='hidden' value=\"PN\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(79, 117, 241);\"></classcolor><classname>Diatomic Nonmetal\n                    <input class='add_element_class' type='hidden' value=\"DN\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: purple;\"></classcolor><classname>Noble Gas\n                    <input class='add_element_class' type='hidden' value=\"NG\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>\n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(247, 201, 146);\"></classcolor><classname>Lanthanide\n                    <input class='add_element_class' type='hidden' value=\"L\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(176, 176, 245);\"></classcolor><classname>Actinide\n                    <input class='add_element_class' type='hidden' value=\"A\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                   \n                    <class class=\"addele1\"><classcolor style=\"background-color: rgb(78, 129, 78);\"></classcolor><classname>Unknown Properties\n                    <input class='add_element_class' type='hidden' value=\"UP\">\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                    <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                    <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\"></classname></class>                                      \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <p>A newly discovered element!</p>\n                </sele>\n            </selement>\n                ");
+}
+
+;
+},{}],"js/components/AddElement2.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddElement2;
+
+function AddElement2(selement) {
+  return "\n            <h1>Now, Choose a Name and a Smybol Tag for Your New Element</h1>\n            <selement class=\"addele\">\n                <classbox>\n                (Name should be 16 characters or less.)</br>\n                <strong>Name:</strong>\n                <input type=\"text\" class=\"add_element_name\" placeholder=\"Choose a Name\">\n                </br>\n                </br>\n                </br>\n                (Symbol value should be 4 characters or less.)</br>\n                <strong>Symbol:</strong>\n                <input type=\"text\" class=\"add_element_symbol\" placeholder=\"Choose a Symbol\">   \n                </br>\n                </br>  \n                <button class=\"addele2\">Continue\n                <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\">\n                </button>            \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <p>A newly discovered element!</p>\n                </sele>\n            </selement>\n                ");
+}
+
+;
+},{}],"js/components/AddElement3.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddElement3;
+
+function AddElement3(selement) {
+  return "\n            <h1>You're almost done, Choose an Atomic Number and an Atomic Mass.</h1>\n            <selement class=\"addele\">\n                <classbox>\n                (Atomic Number should be no greater than 1000.)</br>\n                <strong>Atomic Number:</strong>\n                <input type=\"text\" class=\"add_element_atomic_number\" placeholder=\"Choose a Name\">\n                </br>\n                </br>\n                </br>\n                (Atomic Mass should have 3 values after the decimal.)</br>\n                <strong>Atomic Mass:</strong>\n                <input type=\"text\" class=\"add_element_atomic_weight\" placeholder=\"Choose a Symbol\">   \n                </br>\n                </br>  \n                <button class=\"addele3\">Continue\n                <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\">\n                </button>            \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <sym>").concat(selement.symbol, "</sym>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            </selement>\n                ");
+}
+
+;
+},{}],"js/components/AddElement4.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddElement4;
+
+function AddElement4(selement) {
+  return "\n            <h1>Finally, add a Description and an Image for Your Element!</h1>\n            <selement class=\"addele\">\n                <classbox>\n                (Describe your discovered element)</br>\n                <strong>Description:</strong>\n                <input type=\"text\" class=\"add_element_description\" placeholder=\"Description\">\n                </br>\n                </br>\n                </br>\n                (Image must be a web URL)</br>\n                <strong>Image:</strong>\n                <input type=\"text\" class=\"add_element_image\" placeholder=\"Image URL\">   \n                </br>\n                </br>  \n                <button class=\"addele3\">Continue\n                <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\">\n                </button>            \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <elename>").concat(selement.name, "</elename>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                </sele>\n            </selement>\n                ");
 }
 
 ;
@@ -215,6 +271,12 @@ var _Element = _interopRequireDefault(require("./js/components/Element"));
 
 var _AddElement = _interopRequireDefault(require("./js/components/AddElement"));
 
+var _AddElement2 = _interopRequireDefault(require("./js/components/AddElement2"));
+
+var _AddElement3 = _interopRequireDefault(require("./js/components/AddElement3"));
+
+var _AddElement4 = _interopRequireDefault(require("./js/components/AddElement4"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 pageBuild();
@@ -224,6 +286,9 @@ function pageBuild() {
   elementByClass();
   element();
   addElement();
+  addElement2();
+  addElement3();
+  addElement4();
 }
 
 ; //Displays All Elements
@@ -266,7 +331,7 @@ function element() {
       });
     }
   });
-} //Put Request for Elements of Class "NON" from Table (Add New)
+} //Get Request for Elements of Class "NON" from Table (Add New)
 
 
 function addElement() {
@@ -279,8 +344,84 @@ function addElement() {
       });
     }
   });
+} //Put Request for Add Elements, Returns the Edited Element with the New Class
+
+
+function addElement2() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.parentElement.classList.contains("addele1")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      var selectedclass = event.target.querySelector(".add_element_class").value;
+      var groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+      var periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+      var data = {
+        elementId: elementId,
+        class: selectedclass,
+        groupId: groupid,
+        periodId: periodid
+      };
+
+      _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _AddElement2.default)(selement);
+      });
+    }
+  });
 }
-},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function addElement3() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("addele2")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      var groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+      var periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+      var selectedclass = event.target.querySelector(".add_element_class").value;
+      var name = document.querySelector(".add_element_name").value;
+      var sym = document.querySelector(".add_element_symbol").value;
+      var data = {
+        elementId: elementId,
+        class: selectedclass,
+        groupId: groupid,
+        periodId: periodid,
+        symbol: sym,
+        name: name
+      };
+
+      _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _AddElement3.default)(selement);
+      });
+    }
+  });
+}
+
+function addElement4() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("addele3")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      var groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+      var periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+      var selectedclass = event.target.querySelector(".add_element_class").value;
+      var name = document.querySelector(".add_element_name").value;
+      var sym = document.querySelector(".add_element_symbol").value;
+      var atomnumber = document.querySelector(".add_element_atomic_number").value;
+      var atomweight = document.querySelector(".add_element_atomic_weight").value;
+      var data = {
+        elementId: elementId,
+        class: selectedclass,
+        groupId: groupid,
+        periodId: periodid,
+        symbol: sym,
+        name: name,
+        atomicNumber: atomnumber,
+        atomicWeight: atomweight
+      };
+
+      _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _AddElement4.default)(selement);
+      });
+    }
+  });
+}
+},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js","./js/components/AddElement2":"js/components/AddElement2.js","./js/components/AddElement3":"js/components/AddElement3.js","./js/components/AddElement4":"js/components/AddElement4.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -308,7 +449,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57100" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63268" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

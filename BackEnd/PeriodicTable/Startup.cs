@@ -21,6 +21,7 @@ namespace PeriodicTable
         }
 
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -29,12 +30,15 @@ namespace PeriodicTable
             services.AddMvc();
             services.AddDbContext<SiteContext>();
 
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(options =>
             {
-                builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-            }));
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod().AllowAnyMethod();
+                });
+            });
+
 
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
@@ -52,7 +56,7 @@ namespace PeriodicTable
                 app.UseHsts();
             }
 
-            app.UseCors("MyPolicy");
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseMvc();
         }
