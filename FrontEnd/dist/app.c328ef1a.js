@@ -202,7 +202,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Element;
 
 function Element(selement) {
-  return "\n            <selement>\n                <sele class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            <img src=\"").concat(selement.image, "\">\n            </selement>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n            </selementd>\n                ");
+  return "\n            <selement>\n                <sele class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            <img src=\"").concat(selement.image, "\">\n            </selement>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n            </selementd>\n            <button class=\"delele\">DELETE\n            <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\"></button>\n                ");
 }
 
 ;
@@ -254,7 +254,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = AddElement4;
 
 function AddElement4(selement) {
-  return "\n            <h1>Finally, add a Description and an Image for Your Element!</h1>\n            <selement class=\"addele\">\n                <classbox>\n                (Describe your discovered element)</br>\n                <strong>Description:</strong>\n                <input type=\"text\" class=\"add_element_description\" placeholder=\"Description\">\n                </br>\n                </br>\n                </br>\n                (Image must be a web URL)</br>\n                <strong>Image:</strong>\n                <input type=\"text\" class=\"add_element_image\" placeholder=\"Image URL\">   \n                </br>\n                </br>  \n                <button class=\"addele3\">Continue\n                <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\">\n                </button>            \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <elename>").concat(selement.name, "</elename>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                </sele>\n            </selement>\n                ");
+  return "\n            <h1>Finally, add a Description and an Image for Your Element!</h1>\n            <selement class=\"addele\">\n                <classbox>\n                (Describe your discovered element)</br>\n                <strong>Description:</strong>\n                <input type=\"text\" class=\"add_element_description\" placeholder=\"Description\">\n                </br>\n                </br>\n                </br>\n                (Image must be a web URL)</br>\n                <strong>Image:</strong>\n                <input type=\"text\" class=\"add_element_image\" placeholder=\"Image URL\">   \n                </br>\n                </br>  \n                <button class=\"addele4\">Continue\n                <input class='select_element_by_id_value' type='hidden' value=\"".concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\">\n                </button>            \n                </classbox>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, "\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <elename>").concat(selement.name, "</elename>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                </sele>\n            </selement>\n                ");
 }
 
 ;
@@ -289,6 +289,8 @@ function pageBuild() {
   addElement2();
   addElement3();
   addElement4();
+  createElement();
+  deleteElement();
 }
 
 ; //Displays All Elements
@@ -300,6 +302,16 @@ function elements() {
     _apiActions.default.getRequest("https://localhost:44330/api/elements", function (elementlist) {
       app.innerHTML = (0, _Elements.default)(elementlist);
     });
+  });
+}
+
+;
+
+function delReturnsElements() {
+  var app = document.getElementById('component1');
+
+  _apiActions.default.getRequest("https://localhost:44330/api/elements", function (elementlist) {
+    app.innerHTML = (0, _Elements.default)(elementlist);
   });
 }
 
@@ -417,6 +429,65 @@ function addElement4() {
 
       _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _AddElement4.default)(selement);
+      });
+    }
+  });
+}
+
+function createElement() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("addele4")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      var groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+      var periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+      var selectedclass = event.target.querySelector(".add_element_class").value;
+      var name = document.querySelector(".add_element_name").value;
+      var sym = document.querySelector(".add_element_symbol").value;
+      var atomnumber = document.querySelector(".add_element_atomic_number").value;
+      var atomweight = document.querySelector(".add_element_atomic_weight").value;
+      var image = document.querySelector(".add_element_image").value;
+      var description = document.querySelector(".add_element_description").value;
+      var data = {
+        elementId: elementId,
+        class: selectedclass,
+        groupId: groupid,
+        periodId: periodid,
+        symbol: sym,
+        name: name,
+        atomicNumber: atomnumber,
+        atomicWeight: atomweight,
+        description: description,
+        image: image
+      };
+
+      _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
+        document.getElementById('component1').innerHTML = (0, _Element.default)(selement);
+      });
+    }
+  });
+}
+
+function deleteElement() {
+  document.querySelector('#component1').addEventListener("click", function () {
+    if (event.target.classList.contains("delele")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      var groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+      var periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+      var data = {
+        elementId: elementId,
+        class: "NON",
+        groupId: groupid,
+        periodId: periodid,
+        symbol: "+",
+        name: "Add New",
+        atomicNumber: 1,
+        atomicWeight: 1,
+        description: "",
+        image: ""
+      };
+
+      _apiActions.default.putRequest("https://localhost:44330/api/Elements/" + elementId, data, function (selement) {
+        delReturnsElements();
       });
     }
   });

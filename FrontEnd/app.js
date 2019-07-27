@@ -17,6 +17,8 @@ function pageBuild(){
     addElement2();
     addElement3();
     addElement4();
+    createElement();
+    deleteElement();
 };
 
 //Displays All Elements
@@ -30,6 +32,12 @@ function elements(){
     })
 };
 
+function delReturnsElements(){
+    const app = document.getElementById('component1');
+        ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
+            app.innerHTML = Elements(elementlist);
+        })};
+  
 //Displays Elements By Class
 function elementByClass(){
     document.querySelector('.navbar').addEventListener("click", function() {
@@ -152,3 +160,68 @@ function addElement4(){
         }
     })
 }
+
+function createElement(){ 
+    document.querySelector('#component1').addEventListener("click", function() {
+        if (event.target.classList.contains("addele4")) {
+            const elementId = event.target.querySelector(".select_element_by_id_value").value;
+            const groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+            const periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+            const selectedclass = event.target.querySelector(".add_element_class").value;
+            const name = document.querySelector(".add_element_name").value;
+            const sym = document.querySelector(".add_element_symbol").value;
+            const atomnumber = document.querySelector(".add_element_atomic_number").value;
+            const atomweight = document.querySelector(".add_element_atomic_weight").value;
+            const image = document.querySelector(".add_element_image").value;
+            const description = document.querySelector(".add_element_description").value;
+            const data = {
+                elementId: elementId,
+                class: selectedclass,
+                groupId: groupid,
+                periodId: periodid,
+                symbol: sym,
+                name: name,
+                atomicNumber: atomnumber,
+                atomicWeight: atomweight,
+                description: description,
+                image: image
+            }
+            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            selement => {
+                document.getElementById('component1').innerHTML = Element(selement);
+            },
+            );
+        }
+    })
+}
+
+function deleteElement(){ 
+    document.querySelector('#component1').addEventListener("click", function() {
+        if (event.target.classList.contains("delele")) {
+            const elementId = event.target.querySelector(".select_element_by_id_value").value;
+            const groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+            const periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+            const data = {
+                elementId: elementId,
+                class: "NON",
+                groupId: groupid,
+                periodId: periodid,
+                symbol: "+",
+                name: "Add New",
+                atomicNumber: 1,
+                atomicWeight: 1,
+                description: "",
+                image: "",
+            }
+            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            selement => {
+               delReturnsElements();
+            },
+            );
+        }
+    })
+}
+    
+
+
+    
