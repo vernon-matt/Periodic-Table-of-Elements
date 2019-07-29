@@ -6,6 +6,8 @@ import AddElement from "./js/components/AddElement";
 import AddElement2 from "./js/components/AddElement2";
 import AddElement3 from "./js/components/AddElement3";
 import AddElement4 from "./js/components/AddElement4";
+import EditElement from"./js/components/EditElement";
+import { isAbsolute } from "path";
 
 pageBuild();
 
@@ -19,7 +21,17 @@ function pageBuild(){
     addElement4();
     createElement();
     deleteElement();
+    getEditElement();
+    editElement();
+    about();
 };
+
+//About Nav
+function about() {
+    document.getElementById('navAbout').addEventListener('click', function() {
+        document.getElementById('component1').innerHTML = "<h2>About Page Coming Soon</h2>"
+    })
+}
 
 //Displays All Elements
 function elements(){
@@ -32,6 +44,7 @@ function elements(){
     })
 };
 
+//Returns All Elements Upon Delete
 function delReturnsElements(){
     const app = document.getElementById('component1');
         ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
@@ -85,7 +98,7 @@ function addElement(){
 //Put Request for Add Elements, Returns the Edited Element with the New Class
 function addElement2(){ 
     document.querySelector('#component1').addEventListener("click", function() {
-        if (event.target.parentElement.classList.contains("addele1")) {
+        if (event.target.classList.contains("addele1")) {
             const elementId = event.target.querySelector(".select_element_by_id_value").value;
             const selectedclass = event.target.querySelector(".add_element_class").value;
             const groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
@@ -105,6 +118,7 @@ function addElement2(){
     })
 }
 
+//Add Element 3 Component
 function addElement3(){ 
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.target.classList.contains("addele2")) {
@@ -131,6 +145,7 @@ function addElement3(){
     })
 }
 
+//Add Element 4 Component
 function addElement4(){ 
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.target.classList.contains("addele3")) {
@@ -161,6 +176,7 @@ function addElement4(){
     })
 }
 
+//Creates The New Element And Returns The New Element
 function createElement(){ 
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.target.classList.contains("addele4")) {
@@ -195,6 +211,7 @@ function createElement(){
     })
 }
 
+//Deletes An ELement
 function deleteElement(){ 
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.target.classList.contains("delele")) {
@@ -209,7 +226,7 @@ function deleteElement(){
                 symbol: "+",
                 name: "Add New",
                 atomicNumber: 1,
-                atomicWeight: 1,
+                atomicWeight: 0,
                 description: "",
                 image: "",
             }
@@ -221,7 +238,54 @@ function deleteElement(){
         }
     })
 }
-    
+
+//Gets Edit Component
+function getEditElement() {
+    document.querySelector('#component1').addEventListener("click", function() {
+        if (event.target.classList.contains("geteditele")) {
+            const elementId = event.target.querySelector(".select_element_by_id_value").value;
+            ApiAction.getRequest("https://localhost:44330/api/Elements/element/"+ elementId,
+            selement=>
+            document.getElementById('component1').innerHTML = EditElement(selement)
+            )
+        }
+    })
+}
+
+//Element Edit Component
+function editElement() {
+    document.querySelector('#component1').addEventListener("click", function() {
+        if (event.target.classList.contains("editelement")) {
+            const elementId = event.target.querySelector(".select_element_by_id_value").value;
+            const groupid = event.target.parentElement.querySelector(".select_element_by_group_value").value;
+            const periodid = event.target.parentElement.querySelector(".select_element_by_period_value").value;
+            const selectedclass = document.querySelector(".edit_element_class").value;
+            const name = document.querySelector(".edit_element_name").value;
+            const sym = document.querySelector(".edit_element_symbol").value;
+            const atomnumber = document.querySelector(".edit_element_atomic_number").value;
+            const atomweight = document.querySelector(".edit_element_atomic_weight").value;
+            const image = document.querySelector(".edit_element_image").value;
+            const description = document.querySelector(".edit_element_description").value;
+            const data = {
+                elementId: elementId,
+                class: selectedclass,
+                groupId: groupid,
+                periodId: periodid,
+                symbol: sym,
+                name: name,
+                atomicNumber: atomnumber,
+                atomicWeight: atomweight,
+                description: description,
+                image: image
+            }
+            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            selement => {
+                document.getElementById('component1').innerHTML = Element(selement);
+            },
+            );
+        }
+    })
+}
 
 
     

@@ -35,7 +35,7 @@ namespace PeriodicTable
                     Symbol = "H",
                     AtomicNumber = 1,
                     AtomicWeight = 1.07794,
-                    Description = "HydrogenHydrogen",
+                    Description = "Hydrogen is the chemical element with the symbol H and atomic number 1.With a standard atomic weight of 1.008, hydrogen is the lightest element in the periodic table. Hydrogen is the most abundant chemical substance in the Universe, constituting roughly 75 % of all baryonic mass. [7][note 1] Non - remnant stars are mainly composed of hydrogen in the plasma state. The most common isotope of hydrogen, termed protium(name rarely used, symbol 1H), has one proton and no neutrons. -Wikipedia",
                     Image = "https://metaphysicalexperience.files.wordpress.com/2010/06/physical-universe.jpg",
                 },
                 new Element
