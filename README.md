@@ -2,6 +2,9 @@
 
 An interactive and informative Periodic Table of Elements Single Page Web-Application
 
+![PTE](https://i.ibb.co/d5nSv3f/PTE.png)
+
+
 ## About
 Once landing on the website, select the elements tag in the nav to display the table.
 
