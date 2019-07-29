@@ -14,7 +14,7 @@ export default function AddElement4(selement){
                 <input type="text" class="add_element_image" placeholder="Image URL">   
                 </br>
                 </br>  
-                <button class="addele3">Continue
+                <button class="addele4">Continue
                 <input class='select_element_by_id_value' type='hidden' value="${selement.elementId}">
                 <input class='select_element_by_period_value' type='hidden' value="${selement.periodId}">
                 <input class='select_element_by_group_value' type='hidden' value="${selement.groupId}">
