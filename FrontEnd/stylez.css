@@ -11,12 +11,12 @@ h2 {
 }
 
 body {
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(41, 41, 41);
     color: white;
 }
 elements {
     padding-top:1vh;
-    padding-bottom: 5vh;
+    padding-bottom: 3vh;
     display: grid;
     width: 100vw;
     max-width: 100vw;
@@ -405,14 +405,17 @@ button {
 }
 
 grouplabel {
+    background-color: rgb(32, 32, 32);
     display: grid;
     min-width: 1.5vw;
-    height: 70vh;
-    grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+    height: 77vh;
+    grid-template-rows: 3vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
     grid-row-gap: 1vh;
+    padding-bottom: 11vh;
 }
 
 periodlabel {
+    background-color: rgb(32, 32, 32);
     display: grid;
     min-height: 3.8vh;
     grid-template-columns: 3vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 1.92vw;

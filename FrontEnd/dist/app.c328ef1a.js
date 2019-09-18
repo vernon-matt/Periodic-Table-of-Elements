@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Elements;
 
 function Elements(elementlist) {
-  return "\n    <periodlabel><pl></pl><pl>1</pl><pl>2</pl><pl>3</pl><pl>4</pl><pl>5</pl><pl>6</pl><pl>7</pl><pl>8</pl><pl>9</pl><pl>10</pl><pl>11</pl><pl>12</pl><pl>13</pl><pl>14</pl><pl>15</pl><pl>16</pl><pl>17</pl><pl>18</pl></periodlabel>\n    <elementpage>\n    <grouplabel><groupnum>1</groupnum><groupnum>2</groupnum><groupnum>3</groupnum><groupnum>4</groupnum><groupnum>5</groupnum><groupnum>6</groupnum><groupnum>7</groupnum></grouplabel>\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+  return "\n    <periodlabel><pl></pl><pl>1</pl><pl>2</pl><pl>3</pl><pl>4</pl><pl>5</pl><pl>6</pl><pl>7</pl><pl>8</pl><pl>9</pl><pl>10</pl><pl>11</pl><pl>12</pl><pl>13</pl><pl>14</pl><pl>15</pl><pl>16</pl><pl>17</pl><pl>18</pl></periodlabel>\n    <elementpage>\n    <grouplabel><groupnum></groupnum><groupnum>1</groupnum><groupnum>2</groupnum><groupnum>3</groupnum><groupnum>4</groupnum><groupnum>5</groupnum><groupnum>6</groupnum><groupnum>7</groupnum></grouplabel>\n    <elements>  \n        ".concat(elementlist.map(function (element) {
     if (element.class != "NON") {
       var select = "select_element_by_id";
     }
