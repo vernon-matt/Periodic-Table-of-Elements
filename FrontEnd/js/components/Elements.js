@@ -1,5 +1,7 @@
 export default function Elements(elementlist){
     return `
+    <elementpage>
+    <grouplabel><groupnum>1</groupnum><groupnum>2</groupnum><groupnum>3</groupnum><groupnum>4</groupnum><groupnum>5</groupnum><groupnum>6</groupnum><groupnum>7</groupnum></grouplabel>
     <elements>  
         ${elementlist.map(element => {
             if(element.class != "NON") {var select = "select_element_by_id"};
@@ -16,5 +18,6 @@ export default function Elements(elementlist){
         })     
         .join("")}
     </elements>
+    </elementpage>
     `
 }

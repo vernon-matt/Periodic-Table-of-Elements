@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Elements;
 
 function Elements(elementlist) {
-  return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+  return "\n    <elementpage>\n    <grouplabel><groupnum>1</groupnum><groupnum>2</groupnum><groupnum>3</groupnum><groupnum>4</groupnum><groupnum>5</groupnum><groupnum>6</groupnum><groupnum>7</groupnum></grouplabel>\n    <elements>  \n        ".concat(elementlist.map(function (element) {
     if (element.class != "NON") {
       var select = "select_element_by_id";
     }
@@ -139,7 +139,7 @@ function Elements(elementlist) {
 
     ;
     return "          \n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, "\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                </ele>\n                ");
-  }).join(""), "\n    </elements>\n    ");
+  }).join(""), "\n    </elements>\n    </elementpage>\n    ");
 }
 },{}],"js/api/api-actions.js":[function(require,module,exports) {
 "use strict";
