@@ -7,7 +7,7 @@ import AddElement2 from "./js/components/AddElement2";
 import AddElement3 from "./js/components/AddElement3";
 import AddElement4 from "./js/components/AddElement4";
 import EditElement from"./js/components/EditElement";
-import { isAbsolute } from "path";
+
 
 pageBuild();
 
@@ -242,7 +242,7 @@ function deleteElement(){
 //Gets Edit Component
 function getEditElement() {
     document.querySelector('#component1').addEventListener("click", function() {
-        if (event.target.classList.contains("geteditele")) {
+        if (event.tadrget.classList.contains("geteditele")) {
             const elementId = event.target.querySelector(".select_element_by_id_value").value;
             ApiAction.getRequest("https://localhost:44330/api/Elements/element/"+ elementId,
             selement=>
