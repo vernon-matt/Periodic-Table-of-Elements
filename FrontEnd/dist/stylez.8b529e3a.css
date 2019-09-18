@@ -16,14 +16,14 @@ body {
 }
 elements {
     padding-top:1vh;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
     display: grid;
     width: 100vw;
     max-width: 100vw;
-    grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw  5vw 5vw 5vw;
+    grid-template-columns: 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw;
     grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
     grid-row-gap: 1vh;
-    grid-column-gap: .587vw;
+    grid-column-gap: .580vw;
     background-color: white;
 }
 
@@ -407,9 +407,16 @@ button {
 grouplabel {
     display: grid;
     min-width: 1.5vw;
-    height: 77vh;
+    height: 70vh;
     grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
     grid-row-gap: 1vh;
+}
+
+periodlabel {
+    display: grid;
+    min-height: 3.8vh;
+    grid-template-columns: 3vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 1.92vw;
+    grid-column-gap: .580vw;
 }
 
 elementpage {
