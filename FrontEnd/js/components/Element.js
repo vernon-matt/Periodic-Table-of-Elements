@@ -1,20 +1,20 @@
 export default function Element(selement){
         return `
 
-            <h2>${selement.name}</h2>
+        <sele2 class="${selement.class} Group${selement.groupId} Period${selement.periodId} sele">
+            <sele2class>${selement.class}</sele2class>
+        </sele2>
+            <h2 style="border-bottom: 1px black solid">${selement.name}</h2>
             <selement>
-                <sele class="${selement.class} Group${selement.groupId} Period${selement.periodId} sele">
-                    <atomn>${selement.atomicNumber}</atomn>
-                    <sym>${selement.symbol}</sym>
-                    <atomw>${selement.atomicWeight}</atomw>
-                    <elename>${selement.name}</elename>
-                </sele>
+            <subsele>
             <img src="${selement.image}">
-            </selement>
-            <selement2>
             <selementd>
                 <seld>${selement.description}<seld>
             </selementd>
+            </subsele>
+            </selement>
+            <selement2>
+
             </br>
             </br>
             <selebuttons>
