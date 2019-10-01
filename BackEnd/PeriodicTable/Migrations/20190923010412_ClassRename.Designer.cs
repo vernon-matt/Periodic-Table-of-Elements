@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PeriodicTable;
 
 namespace PeriodicTable.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190923010412_ClassRename")]
+    partial class ClassRename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,13 +38,9 @@ namespace PeriodicTable.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Image2");
-
                     b.Property<string>("Name");
 
                     b.Property<int>("PeriodId");
-
-                    b.Property<string>("Phase");
 
                     b.Property<string>("Symbol");
 
@@ -55,7 +53,7 @@ namespace PeriodicTable.Migrations
                     b.ToTable("Elements");
 
                     b.HasData(
-                        new { ElementId = 1, AtomicNumber = 1, AtomicWeight = 1.07794, Class = "Polyatomic-Nonmetal", Description = "Hydrogen is the chemical element with the symbol H and atomic number 1.With a standard atomic weight of 1.008, hydrogen is the lightest element in the periodic table. Hydrogen is the most abundant chemical substance in the Universe, constituting roughly 75 % of all baryonic mass. [7][note 1] Non - remnant stars are mainly composed of hydrogen in the plasma state. The most common isotope of hydrogen, termed protium(name rarely used, symbol 1H), has one proton and no neutrons. -Wikipedia", GroupId = 1, Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hydrogen_discharge_tube.jpg/1920px-Hydrogen_discharge_tube.jpg", Image2 = "https://s3mn.mnimgs.com/img/shared/content_ck_images/ck_5b98523a32b5c.png", Name = "Hydrogen", PeriodId = 1, Phase = "gas", Symbol = "H" },
+                        new { ElementId = 1, AtomicNumber = 1, AtomicWeight = 1.07794, Class = "Polyatomic-Nonmetal", Description = "Hydrogen is the chemical element with the symbol H and atomic number 1.With a standard atomic weight of 1.008, hydrogen is the lightest element in the periodic table. Hydrogen is the most abundant chemical substance in the Universe, constituting roughly 75 % of all baryonic mass. [7][note 1] Non - remnant stars are mainly composed of hydrogen in the plasma state. The most common isotope of hydrogen, termed protium(name rarely used, symbol 1H), has one proton and no neutrons. -Wikipedia", GroupId = 1, Image = "https://metaphysicalexperience.files.wordpress.com/2010/06/physical-universe.jpg", Name = "Hydrogen", PeriodId = 1, Symbol = "H" },
                         new { ElementId = 2, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 2, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
                         new { ElementId = 3, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 3, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
                         new { ElementId = 4, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 4, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
@@ -72,8 +70,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 15, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 15, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
                         new { ElementId = 16, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 16, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
                         new { ElementId = 17, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 17, Image = "", Name = "ADD NEW", PeriodId = 1, Symbol = "+" },
-                        new { ElementId = 18, AtomicNumber = 2, AtomicWeight = 4.003, Class = "Noble-Gas", Description = "Helium (from Greek: ἥλιος, romanized: Helios, lit. 'Sun') is a chemical element with the symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas, the first in the noble gas group in the periodic table. Its boiling point is the lowest among all the elements. Helium is the second lightest and second most abundant element in the observable universe (hydrogen is the lightest and most abundant). It is present at about 24% of the total elemental mass, which is more than 12 times the mass of all the heavier elements combined. Its abundance is similar to this in both the Sun and in Jupiter. This is due to the very high nuclear binding energy (per nucleon) of helium-4, with respect to the next three elements after helium. -Wikipedia", GroupId = 18, Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Helium_discharge_tube.jpg/1280px-Helium_discharge_tube.jpg", Image2 = "https://chem.libretexts.org/@api/deki/files/124528/Figure_1.png?revision=1&size=bestfit&width=420&height=208", Name = "Helium", PeriodId = 1, Phase = "gas", Symbol = "HE" },
-                        new { ElementId = 19, AtomicNumber = 3, AtomicWeight = 6.941, Class = "Alkaline-Metal", Description = "Lithium (from Greek: λίθος, romanized: lithos, lit. 'stone') is a chemical element with the symbol Li and atomic number 3. It is a soft, silvery-white alkali metal. Under standard conditions, it is the lightest metal and the lightest solid element. Like all alkali metals, lithium is highly reactive and flammable, and must be stored in mineral oil. When cut, it exhibits a metallic luster, but moist air corrodes it quickly to a dull silvery gray, then black tarnish. It never occurs freely in nature, but only in (usually ionic) compounds, such as pegmatitic minerals, which were once the main source of lithium. Due to its solubility as an ion, it is present in ocean water and is commonly obtained from brines. Lithium metal is isolated electrolytically from a mixture of lithium chloride and potassium chloride. -Wikipedia", GroupId = 1, Image = "https://images.hgmsites.net/hug/fisker-flexible-solid-state-battery-material_100638837_h.jpg", Image2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Butyllithium-hexamer-from-xtal-3D-balls-A.png/330px-Butyllithium-hexamer-from-xtal-3D-balls-A.png", Name = "Lithium", PeriodId = 2, Phase = "solid", Symbol = "LI" },
+                        new { ElementId = 18, AtomicNumber = 2, AtomicWeight = 4.003, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Helium", PeriodId = 1, Symbol = "HE" },
+                        new { ElementId = 19, AtomicNumber = 3, AtomicWeight = 6.941, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Lithium", PeriodId = 2, Symbol = "LI" },
                         new { ElementId = 20, AtomicNumber = 4, AtomicWeight = 9.012, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Beryllium", PeriodId = 2, Symbol = "BE" },
                         new { ElementId = 21, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 3, Image = "", Name = "ADD NEW", PeriodId = 2, Symbol = "+" },
                         new { ElementId = 22, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 4, Image = "", Name = "ADD NEW", PeriodId = 2, Symbol = "+" },
@@ -90,8 +88,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 33, AtomicNumber = 7, AtomicWeight = 14.007, Class = "Polyatomic-Nonmetal", Description = "", GroupId = 15, Image = "", Name = "Nitrogen", PeriodId = 2, Symbol = "N" },
                         new { ElementId = 34, AtomicNumber = 8, AtomicWeight = 15.999, Class = "Polyatomic-Nonmetal", Description = "", GroupId = 16, Image = "", Name = "Oxygen", PeriodId = 2, Symbol = "O" },
                         new { ElementId = 35, AtomicNumber = 9, AtomicWeight = 18.998, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Flourine", PeriodId = 2, Symbol = "F" },
-                        new { ElementId = 36, AtomicNumber = 10, AtomicWeight = 20.18, Class = "Noble-Gas", Description = "", GroupId = 18, Image = "", Name = "Neon", PeriodId = 2, Symbol = "Ne" },
-                        new { ElementId = 37, AtomicNumber = 11, AtomicWeight = 22.99, Class = "Alkaline-Metal", Description = "", GroupId = 1, Image = "", Name = "Sodium", PeriodId = 3, Symbol = "Na" },
+                        new { ElementId = 36, AtomicNumber = 10, AtomicWeight = 20.18, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Neon", PeriodId = 2, Symbol = "Ne" },
+                        new { ElementId = 37, AtomicNumber = 11, AtomicWeight = 22.99, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Sodium", PeriodId = 3, Symbol = "Na" },
                         new { ElementId = 38, AtomicNumber = 12, AtomicWeight = 24.305, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Magnesium", PeriodId = 3, Symbol = "Mg" },
                         new { ElementId = 39, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 3, Image = "", Name = "ADD NEW", PeriodId = 3, Symbol = "+" },
                         new { ElementId = 40, AtomicNumber = 1, AtomicWeight = 0.0, Class = "NON", Description = "", GroupId = 4, Image = "", Name = "ADD NEW", PeriodId = 3, Symbol = "+" },
@@ -108,8 +106,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 51, AtomicNumber = 15, AtomicWeight = 30.974, Class = "Polyatomic-Nonmetal", Description = "", GroupId = 15, Image = "", Name = "Phosphorus", PeriodId = 3, Symbol = "P" },
                         new { ElementId = 52, AtomicNumber = 16, AtomicWeight = 32.066, Class = "Polyatomic-Nonmetal", Description = "", GroupId = 16, Image = "", Name = "Sulfur", PeriodId = 3, Symbol = "S" },
                         new { ElementId = 53, AtomicNumber = 17, AtomicWeight = 35.453, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Chlorine", PeriodId = 3, Symbol = "Al" },
-                        new { ElementId = 54, AtomicNumber = 18, AtomicWeight = 39.948, Class = "Noble-Gas", Description = "", GroupId = 18, Image = "", Name = "Argon", PeriodId = 3, Symbol = "Ar" },
-                        new { ElementId = 55, AtomicNumber = 19, AtomicWeight = 39.098, Class = "Alkaline-Metal", Description = "", GroupId = 1, Image = "", Name = "Potassium", PeriodId = 4, Symbol = "K" },
+                        new { ElementId = 54, AtomicNumber = 18, AtomicWeight = 39.948, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Argon", PeriodId = 3, Symbol = "Ar" },
+                        new { ElementId = 55, AtomicNumber = 19, AtomicWeight = 39.098, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Potassium", PeriodId = 4, Symbol = "K" },
                         new { ElementId = 56, AtomicNumber = 20, AtomicWeight = 40.078, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Calcium", PeriodId = 4, Symbol = "Ca" },
                         new { ElementId = 57, AtomicNumber = 21, AtomicWeight = 44.956, Class = "TM", Description = "", GroupId = 3, Image = "", Name = "Scandium", PeriodId = 4, Symbol = "Sc" },
                         new { ElementId = 58, AtomicNumber = 22, AtomicWeight = 47.867, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Titanium", PeriodId = 4, Symbol = "Ti" },
@@ -126,8 +124,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 69, AtomicNumber = 33, AtomicWeight = 74.922, Class = "M", Description = "", GroupId = 15, Image = "", Name = "Arsenic", PeriodId = 4, Symbol = "As" },
                         new { ElementId = 70, AtomicNumber = 34, AtomicWeight = 78.971, Class = "Polyatomic-Nonmetal", Description = "", GroupId = 16, Image = "", Name = "Selenium", PeriodId = 4, Symbol = "Se" },
                         new { ElementId = 71, AtomicNumber = 35, AtomicWeight = 79.904, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Bromine", PeriodId = 4, Symbol = "Br" },
-                        new { ElementId = 72, AtomicNumber = 36, AtomicWeight = 83.798, Class = "Noble-Gas", Description = "", GroupId = 18, Image = "", Name = "Krypton", PeriodId = 4, Symbol = "Kr" },
-                        new { ElementId = 73, AtomicNumber = 37, AtomicWeight = 84.468, Class = "Alkaline-Metal", Description = "", GroupId = 1, Image = "", Name = "Rubidium", PeriodId = 5, Symbol = "Rb" },
+                        new { ElementId = 72, AtomicNumber = 36, AtomicWeight = 83.798, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Krypton", PeriodId = 4, Symbol = "Kr" },
+                        new { ElementId = 73, AtomicNumber = 37, AtomicWeight = 84.468, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Rubidium", PeriodId = 5, Symbol = "Rb" },
                         new { ElementId = 74, AtomicNumber = 38, AtomicWeight = 87.62, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Stronium", PeriodId = 5, Symbol = "Sr" },
                         new { ElementId = 75, AtomicNumber = 39, AtomicWeight = 86.906, Class = "TM", Description = "", GroupId = 3, Image = "", Name = "Yitrium", PeriodId = 5, Symbol = "Y" },
                         new { ElementId = 76, AtomicNumber = 40, AtomicWeight = 91.224, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Zirconium", PeriodId = 5, Symbol = "Zr" },
@@ -144,8 +142,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 87, AtomicNumber = 51, AtomicWeight = 121.76, Class = "M", Description = "", GroupId = 15, Image = "", Name = "Antimony", PeriodId = 5, Symbol = "Sb" },
                         new { ElementId = 88, AtomicNumber = 52, AtomicWeight = 127.6, Class = "M", Description = "", GroupId = 16, Image = "", Name = "Tellurium", PeriodId = 5, Symbol = "Te" },
                         new { ElementId = 89, AtomicNumber = 53, AtomicWeight = 126.904, Class = "DN", Description = "", GroupId = 17, Image = "", Name = "Iodine", PeriodId = 5, Symbol = "I" },
-                        new { ElementId = 90, AtomicNumber = 54, AtomicWeight = 131.294, Class = "Noble-Gas", Description = "", GroupId = 18, Image = "", Name = "Zenon", PeriodId = 5, Symbol = "Xe" },
-                        new { ElementId = 91, AtomicNumber = 55, AtomicWeight = 132.905, Class = "Alkaline-Metal", Description = "", GroupId = 1, Image = "", Name = "Cesium", PeriodId = 6, Symbol = "Cs" },
+                        new { ElementId = 90, AtomicNumber = 54, AtomicWeight = 131.294, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Zenon", PeriodId = 5, Symbol = "Xe" },
+                        new { ElementId = 91, AtomicNumber = 55, AtomicWeight = 132.905, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Cesium", PeriodId = 6, Symbol = "Cs" },
                         new { ElementId = 92, AtomicNumber = 56, AtomicWeight = 137.328, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Barium", PeriodId = 6, Symbol = "Ba" },
                         new { ElementId = 93, AtomicNumber = 0, AtomicWeight = 0.0, Class = "L", Description = "", GroupId = 3, Image = "", Name = "Lanthanides", PeriodId = 6, Symbol = "57-71" },
                         new { ElementId = 94, AtomicNumber = 72, AtomicWeight = 178.49, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Hafnium", PeriodId = 6, Symbol = "Hf" },
@@ -162,8 +160,8 @@ namespace PeriodicTable.Migrations
                         new { ElementId = 105, AtomicNumber = 83, AtomicWeight = 208.98, Class = "PTM", Description = "", GroupId = 15, Image = "", Name = "Bismuth", PeriodId = 6, Symbol = "BI" },
                         new { ElementId = 106, AtomicNumber = 84, AtomicWeight = 208.982, Class = "PTM", Description = "", GroupId = 16, Image = "", Name = "Polonium", PeriodId = 6, Symbol = "Po" },
                         new { ElementId = 107, AtomicNumber = 85, AtomicWeight = 208.982, Class = "M", Description = "", GroupId = 17, Image = "", Name = "Astatine", PeriodId = 6, Symbol = "At" },
-                        new { ElementId = 108, AtomicNumber = 86, AtomicWeight = 208.982, Class = "Noble-Gas", Description = "", GroupId = 18, Image = "", Name = "Radon", PeriodId = 6, Symbol = "Rn" },
-                        new { ElementId = 109, AtomicNumber = 87, AtomicWeight = 223.02, Class = "Alkaline-Metal", Description = "", GroupId = 1, Image = "", Name = "Francium", PeriodId = 7, Symbol = "Fr" },
+                        new { ElementId = 108, AtomicNumber = 86, AtomicWeight = 208.982, Class = "NG", Description = "", GroupId = 18, Image = "", Name = "Radon", PeriodId = 6, Symbol = "Rn" },
+                        new { ElementId = 109, AtomicNumber = 87, AtomicWeight = 223.02, Class = "AM", Description = "", GroupId = 1, Image = "", Name = "Francium", PeriodId = 7, Symbol = "Fr" },
                         new { ElementId = 110, AtomicNumber = 88, AtomicWeight = 226.025, Class = "AEM", Description = "", GroupId = 2, Image = "", Name = "Radium", PeriodId = 7, Symbol = "Ra" },
                         new { ElementId = 111, AtomicNumber = 0, AtomicWeight = 0.0, Class = "A", Description = "", GroupId = 3, Image = "", Name = "Actinides", PeriodId = 7, Symbol = "89-103" },
                         new { ElementId = 112, AtomicNumber = 104, AtomicWeight = 261.0, Class = "TM", Description = "", GroupId = 4, Image = "", Name = "Rutherfordium", PeriodId = 7, Symbol = "Rf" },

@@ -19,5 +19,7 @@ namespace PeriodicTable.Models
         public int GroupId { get; set; }
         //public virtual Period Period { get; set; }
         public int PeriodId { get; set; }
+        public string Phase { get; set; } 
+        public string Image2 { get; set; }
     }
 }
