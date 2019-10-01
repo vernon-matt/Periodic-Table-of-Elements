@@ -5,7 +5,10 @@
   "dependencies": {
     "parcel-bundler": "^1.12.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "flightplan": "^0.6.20",
+    "fly": "^3.3.4"
+  },
   "scripts": {
     "start": "parcel index.html"
   },
@@ -14,4 +17,3 @@
   "license": "ISC",
   "description": ""
 }
-

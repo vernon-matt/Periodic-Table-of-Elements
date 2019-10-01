@@ -12,7 +12,9 @@ export default function Elements(elementlist){
                     <atomn class="${select}">${element.atomicNumber}</atomn>
                     <sym class="${select}">${element.symbol}</sym>
                     <atomw class="${select}">${element.atomicWeight}</atomw>
-                    <elename class="${select}">${element.name}</elename>
+                    <elename class="${select}">${element.name}
+                    <input class='select_element_by_id_value' type='hidden' value="${element.elementId}">
+                    </elename>
                     <input class='select_element_by_id_value' type='hidden' value="${element.elementId}">
                     <input class='groupnum' type='hidden' value="${element.groupId}">
                     <input class='periodnum' type='hidden' value="${element.periodId}">
@@ -20,7 +22,7 @@ export default function Elements(elementlist){
                 `      
         })     
         .join("")}
-        <label class="switch">
+<label class="switch">
   <input class="darktheme" id="darktheme"  type="checkbox">
   <span class="slider"></span>
 </label>
@@ -28,7 +30,15 @@ export default function Elements(elementlist){
 <label class="switch">
   <input class="HideNON" id="HideNON"  type="checkbox">
   <span class="slider"></span>
+</label>
+
+<label class="switch">
+  <input class="InfoView" id="InfoView"  type="checkbox">
+  <span class="slider"></span>
+</label>
     </elements>
+    <div id="InfoBox" style="display: none;">
+    </div>
     </elementpage>
     `
         

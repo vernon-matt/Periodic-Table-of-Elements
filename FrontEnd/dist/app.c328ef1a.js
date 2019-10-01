@@ -138,8 +138,8 @@ function Elements(elementlist) {
     }
 
     ;
-    return "          \n                <ele class=\"ele ".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, "\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                    <input class='groupnum' type='hidden' value=\"").concat(element.groupId, "\">\n                    <input class='periodnum' type='hidden' value=\"").concat(element.periodId, "\">\n                </ele>\n                ");
-  }).join(""), "\n        <label class=\"switch\">\n  <input class=\"darktheme\" id=\"darktheme\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n</label>\n        \n<label class=\"switch\">\n  <input class=\"HideNON\" id=\"HideNON\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n    </elements>\n    </elementpage>\n    ");
+    return "          \n                <ele class=\"ele ".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, "\">").concat(element.name, "\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                    </elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                    <input class='groupnum' type='hidden' value=\"").concat(element.groupId, "\">\n                    <input class='periodnum' type='hidden' value=\"").concat(element.periodId, "\">\n                </ele>\n                ");
+  }).join(""), "\n<label class=\"switch\">\n  <input class=\"darktheme\" id=\"darktheme\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n</label>\n        \n<label class=\"switch\">\n  <input class=\"HideNON\" id=\"HideNON\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n</label>\n\n<label class=\"switch\">\n  <input class=\"InfoView\" id=\"InfoView\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n</label>\n    </elements>\n    <div id=\"InfoBox\" style=\"display: none;\">\n    </div>\n    </elementpage>\n    ");
 }
 },{}],"js/api/api-actions.js":[function(require,module,exports) {
 "use strict";
@@ -271,6 +271,17 @@ function EditElement(selement) {
 }
 
 ;
+},{}],"js/components/InfoBox.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = InfoBox;
+
+function InfoBox(selement) {
+  return "\n            </br>\n            <img style=\"width: 25vw; height:30vh;\" src=\"".concat(selement.image, "\">\n            </br>\n            </br>\n            <h3>").concat(selement.name, "</h3>\n            </br>\n            </br>\n            <img style=\"width: 25vw; height:30vh;\" src=\"").concat(selement.image2, "\">\n    ");
+}
 },{}],"node_modules/constants-browserify/constants.json":[function(require,module,exports) {
 module.exports = {
   "O_RDONLY": 0,
@@ -503,6 +514,8 @@ var _AddElement4 = _interopRequireDefault(require("./js/components/AddElement4")
 
 var _EditElement = _interopRequireDefault(require("./js/components/EditElement"));
 
+var _InfoBox3 = _interopRequireDefault(require("./js/components/InfoBox"));
+
 var _constants = require("constants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -522,6 +535,7 @@ function pageBuild() {
   getEditElement();
   editElement();
   about();
+  infoBox();
 }
 
 ; //About Nav
@@ -529,6 +543,20 @@ function pageBuild() {
 function about() {
   document.getElementById('navAbout').addEventListener('click', function () {
     document.getElementById('component1').innerHTML = "<h2>About Page Coming Soon</h2>";
+  });
+} //Display InfoBox
+
+
+function infoBox() {
+  document.getElementById('component1').addEventListener('mouseover', function () {
+    if (event.target.classList.contains("ele")) {
+      var elementId = event.target.querySelector(".select_element_by_id_value").value;
+      console.log(elementId);
+
+      _apiActions.default.getRequest("https://localhost:44330/api/elements/element/" + elementId, function (selement) {
+        document.getElementById('InfoBox').innerHTML = (0, _InfoBox3.default)(selement);
+      });
+    }
   });
 } //Displays All Elements
 
@@ -933,8 +961,85 @@ app.addEventListener('click', function () {
 
     console.log(HideNON.value);
   }
+}); //Info View
+
+app.addEventListener('click', function () {
+  if (event.target.classList.contains("InfoView")) {
+    var InfoView = document.getElementById('InfoView');
+
+    if (InfoView.checked == true) {
+      var ElementsInfo = document.querySelector('elements');
+      ElementsInfo.style.width = '69vw';
+      ElementsInfo.style.height = '50.5vh';
+      ElementsInfo.style.gridTemplateRows = '7vh 7vh 7vh 7vh 7vh 7vh 7vh';
+      ElementsInfo.style.gridTemplateColumns = '3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw';
+      ElementsInfo.style.gridRowGap = '.7vh';
+      ElementsInfo.style.gridColumnGap = '.406vw';
+      var EleInfo = document.querySelectorAll('ele');
+      EleInfo.forEach(function (element) {
+        element.style.width = '3.5vw';
+        element.style.height = '7vh';
+      });
+      var atomn = document.querySelectorAll('atomn');
+      atomn.forEach(function (element) {
+        element.style.visibility = 'hidden';
+      });
+      var elename = document.querySelectorAll('elename');
+      elename.forEach(function (element) {
+        element.style.visibility = 'hidden';
+      });
+      var atomw = document.querySelectorAll('atomw');
+      atomw.forEach(function (element) {
+        element.style.visibility = 'hidden';
+      });
+
+      var _InfoBox = document.getElementById('InfoBox');
+
+      _InfoBox.style.display = null;
+    }
+
+    if (InfoView.checked == false) {
+      var _ElementsInfo = document.querySelector('elements');
+
+      _ElementsInfo.style.width = '100vw';
+      _ElementsInfo.style.height = null;
+      _ElementsInfo.style.gridTemplateRows = '10vh 10vh 10vh 10vh 10vh 10vh 10vh';
+      _ElementsInfo.style.gridTemplateColumns = '4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw';
+      _ElementsInfo.style.gridRowGap = '1vh';
+      _ElementsInfo.style.gridColumnGap = '.580vw';
+
+      var _EleInfo = document.querySelectorAll('ele');
+
+      _EleInfo.forEach(function (element) {
+        element.style.width = '5vw';
+        element.style.height = '10vh';
+      });
+
+      var _atomn = document.querySelectorAll('atomn');
+
+      _atomn.forEach(function (element) {
+        element.style.visibility = null;
+      });
+
+      var _elename = document.querySelectorAll('elename');
+
+      _elename.forEach(function (element) {
+        element.style.visibility = null;
+      });
+
+      var _atomw = document.querySelectorAll('atomw');
+
+      _atomw.forEach(function (element) {
+        element.style.visibility = null;
+      });
+
+      var _InfoBox2 = document.getElementById('InfoBox');
+
+      _InfoBox2.style.display = 'none';
+    }
+  }
 });
-},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js","./js/components/AddElement2":"js/components/AddElement2.js","./js/components/AddElement3":"js/components/AddElement3.js","./js/components/AddElement4":"js/components/AddElement4.js","./js/components/EditElement":"js/components/EditElement.js","constants":"node_modules/constants-browserify/constants.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js","./js/components/AddElement2":"js/components/AddElement2.js","./js/components/AddElement3":"js/components/AddElement3.js","./js/components/AddElement4":"js/components/AddElement4.js","./js/components/EditElement":"js/components/EditElement.js","./js/components/InfoBox":"js/components/InfoBox.js","constants":"node_modules/constants-browserify/constants.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -962,7 +1067,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57166" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -7,6 +7,7 @@ import AddElement2 from "./js/components/AddElement2";
 import AddElement3 from "./js/components/AddElement3";
 import AddElement4 from "./js/components/AddElement4";
 import EditElement from"./js/components/EditElement";
+import InfoBox from "./js/components/InfoBox";
 import { ENETRESET } from "constants";
 
 
@@ -25,6 +26,7 @@ function pageBuild(){
     getEditElement();
     editElement();
     about();
+    infoBox();
 };
 
 //About Nav
@@ -33,6 +35,21 @@ function about() {
         document.getElementById('component1').innerHTML = "<h2>About Page Coming Soon</h2>"
     })
 }
+
+//Display InfoBox
+function infoBox() {
+    document.getElementById('component1').addEventListener('mouseover', function() {
+        if (event.target.classList.contains("ele")) {
+            const elementId = event.target.querySelector(".select_element_by_id_value").value;
+            console.log(elementId)
+            ApiAction.getRequest("https://localhost:44330/api/elements/element/"+ elementId,
+              selement => {
+                  document.getElementById('InfoBox').innerHTML = InfoBox(selement);
+        }
+    )}
+})}
+            
+
 
 //Displays All Elements
 function elements(){
@@ -430,5 +447,67 @@ app.addEventListener('click', function(){
     console.log(HideNON.value)
 }})
 
+//Info View
+app.addEventListener('click', function(){
+    if (event.target.classList.contains("InfoView")) {
+    let InfoView = document.getElementById('InfoView');
+    if (InfoView.checked == true){
+        const ElementsInfo = document.querySelector('elements');
+        ElementsInfo.style.width = '69vw'
+        ElementsInfo.style.height = '50.5vh'
+        ElementsInfo.style.gridTemplateRows = '7vh 7vh 7vh 7vh 7vh 7vh 7vh'
+        ElementsInfo.style.gridTemplateColumns = '3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw 3.44vw'
+        ElementsInfo.style.gridRowGap = '.7vh'
+        ElementsInfo.style.gridColumnGap = '.406vw'
+        const EleInfo = document.querySelectorAll('ele');
+        EleInfo.forEach(element => {
+            element.style.width = '3.5vw'
+            element.style.height = '7vh'
+        })
+        const atomn = document.querySelectorAll('atomn');
+        atomn.forEach(element => {
+            element.style.visibility = 'hidden'
+        })
+        const elename = document.querySelectorAll('elename');
+        elename.forEach(element => {
+            element.style.visibility = 'hidden'
+        })
+        const atomw = document.querySelectorAll('atomw');
+        atomw.forEach(element => {
+            element.style.visibility = 'hidden'
+        })
+        const InfoBox = document.getElementById('InfoBox');
+        InfoBox.style.display = null;
+    }
+    if (InfoView.checked == false){
+        const ElementsInfo = document.querySelector('elements');
+        ElementsInfo.style.width = '100vw'
+        ElementsInfo.style.height = null
+        ElementsInfo.style.gridTemplateRows = '10vh 10vh 10vh 10vh 10vh 10vh 10vh'
+        ElementsInfo.style.gridTemplateColumns = '4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw 4.92vw'
+        ElementsInfo.style.gridRowGap = '1vh'
+        ElementsInfo.style.gridColumnGap = '.580vw'
+        const EleInfo = document.querySelectorAll('ele');
+        EleInfo.forEach(element => {
+            element.style.width = '5vw'
+            element.style.height = '10vh'
+        })
+        const atomn = document.querySelectorAll('atomn');
+        atomn.forEach(element => {
+            element.style.visibility = null
+        })
+        const elename = document.querySelectorAll('elename');
+        elename.forEach(element => {
+            element.style.visibility = null
+        })
+        const atomw = document.querySelectorAll('atomw');
+        atomw.forEach(element => {
+            element.style.visibility = null
+        })
+        const InfoBox = document.getElementById('InfoBox');
+        InfoBox.style.display = 'none';
+    }
+}
+})
 
     
