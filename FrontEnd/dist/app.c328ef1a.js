@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Elements;
 
 function Elements(elementlist) {
-  return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+  return "\n    <periodlabel><pl></pl><pl id=\"pl1\">1</pl><pl id=\"pl2\">2</pl><pl id=\"pl3\">3</pl><pl id=\"pl4\">4</pl><pl id=\"pl5\">5</pl><pl id=\"pl6\">6</pl><pl id=\"pl7\">7</pl><pl id=\"pl8\">8</pl><pl id=\"pl9\">9</pl><pl id=\"pl10\">10</pl><pl id=\"pl11\">11</pl><pl id=\"pl12\">12</pl><pl id=\"pl13\">13</pl><pl id=\"pl14\">14</pl><pl id=\"pl15\">15</pl><pl id=\"pl16\">16</pl><pl id=\"pl17\">17</pl><pl id=\"pl18\">18</pl></periodlabel>\n    <elementpage>\n    <grouplabel><groupnum></groupnum><groupnum id=\"g1\">1</groupnum><groupnum id=\"g2\">2</groupnum><groupnum id=\"g3\">3</groupnum><groupnum id=\"g4\">4</groupnum><groupnum id=\"g5\">5</groupnum><groupnum id=\"g6\">6</groupnum><groupnum id=\"g7\">7</groupnum></grouplabel>\n    <elements>  \n        ".concat(elementlist.map(function (element) {
     if (element.class != "NON") {
       var select = "select_element_by_id";
     }
@@ -138,8 +138,8 @@ function Elements(elementlist) {
     }
 
     ;
-    return "          \n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, "\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                </ele>\n                ");
-  }).join(""), "\n    </elements>\n    ");
+    return "          \n                <ele class=\"ele ".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn class=\"").concat(select, "\">").concat(element.atomicNumber, "</atomn>\n                    <sym class=\"").concat(select, "\">").concat(element.symbol, "</sym>\n                    <atomw class=\"").concat(select, "\">").concat(element.atomicWeight, "</atomw>\n                    <elename class=\"").concat(select, "\">").concat(element.name, "</elename>\n                    <input class='select_element_by_id_value' type='hidden' value=\"").concat(element.elementId, "\">\n                    <input class='groupnum' type='hidden' value=\"").concat(element.groupId, "\">\n                    <input class='periodnum' type='hidden' value=\"").concat(element.periodId, "\">\n                </ele>\n                ");
+  }).join(""), "\n        <label class=\"switch\">\n  <input class=\"darktheme\" id=\"darktheme\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n</label>\n        \n<label class=\"switch\">\n  <input class=\"HideNON\" id=\"HideNON\"  type=\"checkbox\">\n  <span class=\"slider\"></span>\n    </elements>\n    </elementpage>\n    ");
 }
 },{}],"js/api/api-actions.js":[function(require,module,exports) {
 "use strict";
@@ -189,7 +189,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = ElementByClass;
 
 function ElementByClass(elementlist) {
-  return "\n    <elements>  \n        ".concat(elementlist.map(function (element) {
+  return "\n    ".concat(elementlist[0].class, "\n    <elements>  \n        ").concat(elementlist.map(function (element) {
     return "\n                <ele class=\"".concat(element.class, " Group").concat(element.groupId, " Period").concat(element.periodId, "\">\n                    <atomn>").concat(element.atomicNumber, "</atomn>\n                    <sym>").concat(element.symbol, "</sym>\n                    <atomw>").concat(element.atomicWeight, "</atomw>\n                    <elename>").concat(element.name, "</elename>\n                </ele>\n                ");
   }).join(""), "\n    </elements>\n    ");
 }
@@ -202,7 +202,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Element;
 
 function Element(selement) {
-  return "\n\n            <h2>".concat(selement.name, "</h2>\n            <selement>\n                <sele class=\"").concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n                    <atomn>").concat(selement.atomicNumber, "</atomn>\n                    <sym>").concat(selement.symbol, "</sym>\n                    <atomw>").concat(selement.atomicWeight, "</atomw>\n                    <elename>").concat(selement.name, "</elename>\n                </sele>\n            <img src=\"").concat(selement.image, "\">\n            </selement>\n            <selement2>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n            </selementd>\n            </br>\n            </br>\n            <selebuttons>\n                <button class=\"delele\">DELETE\n                <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\"></button>\n                <button class=\"geteditele\">EDIT\n                <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\"></button>\n            </selebuttons>\n            </selement2>\n                ");
+  return "\n        <div class=\"fixedseleheader\">\n        <sele2 class=\"".concat(selement.class, " Group").concat(selement.groupId, " Period").concat(selement.periodId, " sele\">\n            <sele2class>").concat(selement.class, "</sele2class>\n        </sele2>\n            <h2 style=\"border-bottom: 1px black solid; background-color: rgb(41, 41, 41);\">").concat(selement.name, "</h2>\n            </div>\n            <selement>\n            <subsele>\n            <selementd>\n                <seld>").concat(selement.description, "<seld>\n                </br>\n                </br>\n                </br>\n                Periodic Properties of ").concat(selement.name, "\n                <hr>\n                Atomic Number: ").concat(selement.atomicNumber, "\n                </br>\n                Atomic Weight: ").concat(selement.atomicWeight, "\n                </br>\n                Class: ").concat(selement.class, "\n                </br>\n                Group: ").concat(selement.groupId, "\n                </br>\n                Period: ").concat(selement.periodId, "\n                </br>\n                </br>\n                Chemical Properties of ").concat(selement.name, "\n                <hr>\n                Phase at STP: ").concat(selement.phase, "\n                </br>\n                Melting Point: -200\xB0F\n                </br>\n                Boiling Point: -150\xB0F\n                </br>\n                Density: 0.08988 g/L\n                </br>\n                </br>\n                Atomic Properties of ").concat(selement.name, "\n                <hr>\n                Electronegativity: \n                </br>\n                Covalent radius:\n                </br>\n                Van der Waals radius:\n\n                <selebuttons>\n                <button class=\"delele\">DELETE\n     \n                <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\"></button>\n                <button class=\"geteditele\">EDIT\n                <input class='select_element_by_id_value' type='hidden' value=\"").concat(selement.elementId, "\">\n                <input class='select_element_by_period_value' type='hidden' value=\"").concat(selement.periodId, "\">\n                <input class='select_element_by_group_value' type='hidden' value=\"").concat(selement.groupId, "\">\n                <input class='add_element_name' type='hidden' value=\"").concat(selement.name, "\">\n                <input class='add_element_symbol' type='hidden' value=\"").concat(selement.symbol, "\">\n                <input class='add_element_atomic_number' type='hidden' value=\"").concat(selement.atomicNumber, "\">\n                <input class='add_element_atomic_weight' type='hidden' value=\"").concat(selement.atomicWeight, "\">\n                <input class='add_element_class' type='hidden' value=\"").concat(selement.class, "\"></button>\n            </selebuttons>\n            </selementd>\n            <asp>\n            <img src=\"").concat(selement.image, "\">\n            <img src=\"").concat(selement.image2, "\">\n           \n            </asp>\n            </subsele>\n            </selement>\n            <selement2>\n            </br>\n            </br>\n           \n            </selement2>\n                ");
 }
 
 ;
@@ -271,521 +271,218 @@ function EditElement(selement) {
 }
 
 ;
-},{}],"node_modules/process/browser.js":[function(require,module,exports) {
-
-// shim for using process in browser
-var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-  throw new Error('setTimeout has not been defined');
+},{}],"node_modules/constants-browserify/constants.json":[function(require,module,exports) {
+module.exports = {
+  "O_RDONLY": 0,
+  "O_WRONLY": 1,
+  "O_RDWR": 2,
+  "S_IFMT": 61440,
+  "S_IFREG": 32768,
+  "S_IFDIR": 16384,
+  "S_IFCHR": 8192,
+  "S_IFBLK": 24576,
+  "S_IFIFO": 4096,
+  "S_IFLNK": 40960,
+  "S_IFSOCK": 49152,
+  "O_CREAT": 512,
+  "O_EXCL": 2048,
+  "O_NOCTTY": 131072,
+  "O_TRUNC": 1024,
+  "O_APPEND": 8,
+  "O_DIRECTORY": 1048576,
+  "O_NOFOLLOW": 256,
+  "O_SYNC": 128,
+  "O_SYMLINK": 2097152,
+  "O_NONBLOCK": 4,
+  "S_IRWXU": 448,
+  "S_IRUSR": 256,
+  "S_IWUSR": 128,
+  "S_IXUSR": 64,
+  "S_IRWXG": 56,
+  "S_IRGRP": 32,
+  "S_IWGRP": 16,
+  "S_IXGRP": 8,
+  "S_IRWXO": 7,
+  "S_IROTH": 4,
+  "S_IWOTH": 2,
+  "S_IXOTH": 1,
+  "E2BIG": 7,
+  "EACCES": 13,
+  "EADDRINUSE": 48,
+  "EADDRNOTAVAIL": 49,
+  "EAFNOSUPPORT": 47,
+  "EAGAIN": 35,
+  "EALREADY": 37,
+  "EBADF": 9,
+  "EBADMSG": 94,
+  "EBUSY": 16,
+  "ECANCELED": 89,
+  "ECHILD": 10,
+  "ECONNABORTED": 53,
+  "ECONNREFUSED": 61,
+  "ECONNRESET": 54,
+  "EDEADLK": 11,
+  "EDESTADDRREQ": 39,
+  "EDOM": 33,
+  "EDQUOT": 69,
+  "EEXIST": 17,
+  "EFAULT": 14,
+  "EFBIG": 27,
+  "EHOSTUNREACH": 65,
+  "EIDRM": 90,
+  "EILSEQ": 92,
+  "EINPROGRESS": 36,
+  "EINTR": 4,
+  "EINVAL": 22,
+  "EIO": 5,
+  "EISCONN": 56,
+  "EISDIR": 21,
+  "ELOOP": 62,
+  "EMFILE": 24,
+  "EMLINK": 31,
+  "EMSGSIZE": 40,
+  "EMULTIHOP": 95,
+  "ENAMETOOLONG": 63,
+  "ENETDOWN": 50,
+  "ENETRESET": 52,
+  "ENETUNREACH": 51,
+  "ENFILE": 23,
+  "ENOBUFS": 55,
+  "ENODATA": 96,
+  "ENODEV": 19,
+  "ENOENT": 2,
+  "ENOEXEC": 8,
+  "ENOLCK": 77,
+  "ENOLINK": 97,
+  "ENOMEM": 12,
+  "ENOMSG": 91,
+  "ENOPROTOOPT": 42,
+  "ENOSPC": 28,
+  "ENOSR": 98,
+  "ENOSTR": 99,
+  "ENOSYS": 78,
+  "ENOTCONN": 57,
+  "ENOTDIR": 20,
+  "ENOTEMPTY": 66,
+  "ENOTSOCK": 38,
+  "ENOTSUP": 45,
+  "ENOTTY": 25,
+  "ENXIO": 6,
+  "EOPNOTSUPP": 102,
+  "EOVERFLOW": 84,
+  "EPERM": 1,
+  "EPIPE": 32,
+  "EPROTO": 100,
+  "EPROTONOSUPPORT": 43,
+  "EPROTOTYPE": 41,
+  "ERANGE": 34,
+  "EROFS": 30,
+  "ESPIPE": 29,
+  "ESRCH": 3,
+  "ESTALE": 70,
+  "ETIME": 101,
+  "ETIMEDOUT": 60,
+  "ETXTBSY": 26,
+  "EWOULDBLOCK": 35,
+  "EXDEV": 18,
+  "SIGHUP": 1,
+  "SIGINT": 2,
+  "SIGQUIT": 3,
+  "SIGILL": 4,
+  "SIGTRAP": 5,
+  "SIGABRT": 6,
+  "SIGIOT": 6,
+  "SIGBUS": 10,
+  "SIGFPE": 8,
+  "SIGKILL": 9,
+  "SIGUSR1": 30,
+  "SIGSEGV": 11,
+  "SIGUSR2": 31,
+  "SIGPIPE": 13,
+  "SIGALRM": 14,
+  "SIGTERM": 15,
+  "SIGCHLD": 20,
+  "SIGCONT": 19,
+  "SIGSTOP": 17,
+  "SIGTSTP": 18,
+  "SIGTTIN": 21,
+  "SIGTTOU": 22,
+  "SIGURG": 16,
+  "SIGXCPU": 24,
+  "SIGXFSZ": 25,
+  "SIGVTALRM": 26,
+  "SIGPROF": 27,
+  "SIGWINCH": 28,
+  "SIGIO": 23,
+  "SIGSYS": 12,
+  "SSL_OP_ALL": 2147486719,
+  "SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION": 262144,
+  "SSL_OP_CIPHER_SERVER_PREFERENCE": 4194304,
+  "SSL_OP_CISCO_ANYCONNECT": 32768,
+  "SSL_OP_COOKIE_EXCHANGE": 8192,
+  "SSL_OP_CRYPTOPRO_TLSEXT_BUG": 2147483648,
+  "SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS": 2048,
+  "SSL_OP_EPHEMERAL_RSA": 0,
+  "SSL_OP_LEGACY_SERVER_CONNECT": 4,
+  "SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER": 32,
+  "SSL_OP_MICROSOFT_SESS_ID_BUG": 1,
+  "SSL_OP_MSIE_SSLV2_RSA_PADDING": 0,
+  "SSL_OP_NETSCAPE_CA_DN_BUG": 536870912,
+  "SSL_OP_NETSCAPE_CHALLENGE_BUG": 2,
+  "SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG": 1073741824,
+  "SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG": 8,
+  "SSL_OP_NO_COMPRESSION": 131072,
+  "SSL_OP_NO_QUERY_MTU": 4096,
+  "SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION": 65536,
+  "SSL_OP_NO_SSLv2": 16777216,
+  "SSL_OP_NO_SSLv3": 33554432,
+  "SSL_OP_NO_TICKET": 16384,
+  "SSL_OP_NO_TLSv1": 67108864,
+  "SSL_OP_NO_TLSv1_1": 268435456,
+  "SSL_OP_NO_TLSv1_2": 134217728,
+  "SSL_OP_PKCS1_CHECK_1": 0,
+  "SSL_OP_PKCS1_CHECK_2": 0,
+  "SSL_OP_SINGLE_DH_USE": 1048576,
+  "SSL_OP_SINGLE_ECDH_USE": 524288,
+  "SSL_OP_SSLEAY_080_CLIENT_DH_BUG": 128,
+  "SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG": 0,
+  "SSL_OP_TLS_BLOCK_PADDING_BUG": 512,
+  "SSL_OP_TLS_D5_BUG": 256,
+  "SSL_OP_TLS_ROLLBACK_BUG": 8388608,
+  "ENGINE_METHOD_DSA": 2,
+  "ENGINE_METHOD_DH": 4,
+  "ENGINE_METHOD_RAND": 8,
+  "ENGINE_METHOD_ECDH": 16,
+  "ENGINE_METHOD_ECDSA": 32,
+  "ENGINE_METHOD_CIPHERS": 64,
+  "ENGINE_METHOD_DIGESTS": 128,
+  "ENGINE_METHOD_STORE": 256,
+  "ENGINE_METHOD_PKEY_METHS": 512,
+  "ENGINE_METHOD_PKEY_ASN1_METHS": 1024,
+  "ENGINE_METHOD_ALL": 65535,
+  "ENGINE_METHOD_NONE": 0,
+  "DH_CHECK_P_NOT_SAFE_PRIME": 2,
+  "DH_CHECK_P_NOT_PRIME": 1,
+  "DH_UNABLE_TO_CHECK_GENERATOR": 4,
+  "DH_NOT_SUITABLE_GENERATOR": 8,
+  "NPN_ENABLED": 1,
+  "RSA_PKCS1_PADDING": 1,
+  "RSA_SSLV23_PADDING": 2,
+  "RSA_NO_PADDING": 3,
+  "RSA_PKCS1_OAEP_PADDING": 4,
+  "RSA_X931_PADDING": 5,
+  "RSA_PKCS1_PSS_PADDING": 6,
+  "POINT_CONVERSION_COMPRESSED": 2,
+  "POINT_CONVERSION_UNCOMPRESSED": 4,
+  "POINT_CONVERSION_HYBRID": 6,
+  "F_OK": 0,
+  "R_OK": 4,
+  "W_OK": 2,
+  "X_OK": 1,
+  "UV_UDP_REUSEADDR": 4
 }
-
-function defaultClearTimeout() {
-  throw new Error('clearTimeout has not been defined');
-}
-
-(function () {
-  try {
-    if (typeof setTimeout === 'function') {
-      cachedSetTimeout = setTimeout;
-    } else {
-      cachedSetTimeout = defaultSetTimout;
-    }
-  } catch (e) {
-    cachedSetTimeout = defaultSetTimout;
-  }
-
-  try {
-    if (typeof clearTimeout === 'function') {
-      cachedClearTimeout = clearTimeout;
-    } else {
-      cachedClearTimeout = defaultClearTimeout;
-    }
-  } catch (e) {
-    cachedClearTimeout = defaultClearTimeout;
-  }
-})();
-
-function runTimeout(fun) {
-  if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-  } // if setTimeout wasn't available but was latter defined
-
-
-  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-    cachedSetTimeout = setTimeout;
-    return setTimeout(fun, 0);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedSetTimeout(fun, 0);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      return cachedSetTimeout.call(null, fun, 0);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-      return cachedSetTimeout.call(this, fun, 0);
-    }
-  }
-}
-
-function runClearTimeout(marker) {
-  if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
-    return clearTimeout(marker);
-  } // if clearTimeout wasn't available but was latter defined
-
-
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-    cachedClearTimeout = clearTimeout;
-    return clearTimeout(marker);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedClearTimeout(marker);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      return cachedClearTimeout.call(null, marker);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-      return cachedClearTimeout.call(this, marker);
-    }
-  }
-}
-
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-  if (!draining || !currentQueue) {
-    return;
-  }
-
-  draining = false;
-
-  if (currentQueue.length) {
-    queue = currentQueue.concat(queue);
-  } else {
-    queueIndex = -1;
-  }
-
-  if (queue.length) {
-    drainQueue();
-  }
-}
-
-function drainQueue() {
-  if (draining) {
-    return;
-  }
-
-  var timeout = runTimeout(cleanUpNextTick);
-  draining = true;
-  var len = queue.length;
-
-  while (len) {
-    currentQueue = queue;
-    queue = [];
-
-    while (++queueIndex < len) {
-      if (currentQueue) {
-        currentQueue[queueIndex].run();
-      }
-    }
-
-    queueIndex = -1;
-    len = queue.length;
-  }
-
-  currentQueue = null;
-  draining = false;
-  runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-  var args = new Array(arguments.length - 1);
-
-  if (arguments.length > 1) {
-    for (var i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i];
-    }
-  }
-
-  queue.push(new Item(fun, args));
-
-  if (queue.length === 1 && !draining) {
-    runTimeout(drainQueue);
-  }
-}; // v8 likes predictible objects
-
-
-function Item(fun, array) {
-  this.fun = fun;
-  this.array = array;
-}
-
-Item.prototype.run = function () {
-  this.fun.apply(null, this.array);
-};
-
-process.title = 'browser';
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-  return [];
-};
-
-process.binding = function (name) {
-  throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-  return '/';
-};
-
-process.chdir = function (dir) {
-  throw new Error('process.chdir is not supported');
-};
-
-process.umask = function () {
-  return 0;
-};
-},{}],"node_modules/path-browserify/index.js":[function(require,module,exports) {
-var process = require("process");
-// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
-// backported and transplited with Babel, with backwards-compat fixes
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-// resolves . and .. elements in a path array with directory names there
-// must be no slashes, empty elements, or device names (c:\) in the array
-// (so also no leading and trailing slashes - it does not distinguish
-// relative and absolute paths)
-function normalizeArray(parts, allowAboveRoot) {
-  // if the path tries to go above the root, `up` ends up > 0
-  var up = 0;
-  for (var i = parts.length - 1; i >= 0; i--) {
-    var last = parts[i];
-    if (last === '.') {
-      parts.splice(i, 1);
-    } else if (last === '..') {
-      parts.splice(i, 1);
-      up++;
-    } else if (up) {
-      parts.splice(i, 1);
-      up--;
-    }
-  }
-
-  // if the path is allowed to go above the root, restore leading ..s
-  if (allowAboveRoot) {
-    for (; up--; up) {
-      parts.unshift('..');
-    }
-  }
-
-  return parts;
-}
-
-// path.resolve([from ...], to)
-// posix version
-exports.resolve = function() {
-  var resolvedPath = '',
-      resolvedAbsolute = false;
-
-  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-    var path = (i >= 0) ? arguments[i] : process.cwd();
-
-    // Skip empty and invalid entries
-    if (typeof path !== 'string') {
-      throw new TypeError('Arguments to path.resolve must be strings');
-    } else if (!path) {
-      continue;
-    }
-
-    resolvedPath = path + '/' + resolvedPath;
-    resolvedAbsolute = path.charAt(0) === '/';
-  }
-
-  // At this point the path should be resolved to a full absolute path, but
-  // handle relative paths to be safe (might happen when process.cwd() fails)
-
-  // Normalize the path
-  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
-    return !!p;
-  }), !resolvedAbsolute).join('/');
-
-  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
-};
-
-// path.normalize(path)
-// posix version
-exports.normalize = function(path) {
-  var isAbsolute = exports.isAbsolute(path),
-      trailingSlash = substr(path, -1) === '/';
-
-  // Normalize the path
-  path = normalizeArray(filter(path.split('/'), function(p) {
-    return !!p;
-  }), !isAbsolute).join('/');
-
-  if (!path && !isAbsolute) {
-    path = '.';
-  }
-  if (path && trailingSlash) {
-    path += '/';
-  }
-
-  return (isAbsolute ? '/' : '') + path;
-};
-
-// posix version
-exports.isAbsolute = function(path) {
-  return path.charAt(0) === '/';
-};
-
-// posix version
-exports.join = function() {
-  var paths = Array.prototype.slice.call(arguments, 0);
-  return exports.normalize(filter(paths, function(p, index) {
-    if (typeof p !== 'string') {
-      throw new TypeError('Arguments to path.join must be strings');
-    }
-    return p;
-  }).join('/'));
-};
-
-
-// path.relative(from, to)
-// posix version
-exports.relative = function(from, to) {
-  from = exports.resolve(from).substr(1);
-  to = exports.resolve(to).substr(1);
-
-  function trim(arr) {
-    var start = 0;
-    for (; start < arr.length; start++) {
-      if (arr[start] !== '') break;
-    }
-
-    var end = arr.length - 1;
-    for (; end >= 0; end--) {
-      if (arr[end] !== '') break;
-    }
-
-    if (start > end) return [];
-    return arr.slice(start, end - start + 1);
-  }
-
-  var fromParts = trim(from.split('/'));
-  var toParts = trim(to.split('/'));
-
-  var length = Math.min(fromParts.length, toParts.length);
-  var samePartsLength = length;
-  for (var i = 0; i < length; i++) {
-    if (fromParts[i] !== toParts[i]) {
-      samePartsLength = i;
-      break;
-    }
-  }
-
-  var outputParts = [];
-  for (var i = samePartsLength; i < fromParts.length; i++) {
-    outputParts.push('..');
-  }
-
-  outputParts = outputParts.concat(toParts.slice(samePartsLength));
-
-  return outputParts.join('/');
-};
-
-exports.sep = '/';
-exports.delimiter = ':';
-
-exports.dirname = function (path) {
-  if (typeof path !== 'string') path = path + '';
-  if (path.length === 0) return '.';
-  var code = path.charCodeAt(0);
-  var hasRoot = code === 47 /*/*/;
-  var end = -1;
-  var matchedSlash = true;
-  for (var i = path.length - 1; i >= 1; --i) {
-    code = path.charCodeAt(i);
-    if (code === 47 /*/*/) {
-        if (!matchedSlash) {
-          end = i;
-          break;
-        }
-      } else {
-      // We saw the first non-path separator
-      matchedSlash = false;
-    }
-  }
-
-  if (end === -1) return hasRoot ? '/' : '.';
-  if (hasRoot && end === 1) {
-    // return '//';
-    // Backwards-compat fix:
-    return '/';
-  }
-  return path.slice(0, end);
-};
-
-function basename(path) {
-  if (typeof path !== 'string') path = path + '';
-
-  var start = 0;
-  var end = -1;
-  var matchedSlash = true;
-  var i;
-
-  for (i = path.length - 1; i >= 0; --i) {
-    if (path.charCodeAt(i) === 47 /*/*/) {
-        // If we reached a path separator that was not part of a set of path
-        // separators at the end of the string, stop now
-        if (!matchedSlash) {
-          start = i + 1;
-          break;
-        }
-      } else if (end === -1) {
-      // We saw the first non-path separator, mark this as the end of our
-      // path component
-      matchedSlash = false;
-      end = i + 1;
-    }
-  }
-
-  if (end === -1) return '';
-  return path.slice(start, end);
-}
-
-// Uses a mixed approach for backwards-compatibility, as ext behavior changed
-// in new Node.js versions, so only basename() above is backported here
-exports.basename = function (path, ext) {
-  var f = basename(path);
-  if (ext && f.substr(-1 * ext.length) === ext) {
-    f = f.substr(0, f.length - ext.length);
-  }
-  return f;
-};
-
-exports.extname = function (path) {
-  if (typeof path !== 'string') path = path + '';
-  var startDot = -1;
-  var startPart = 0;
-  var end = -1;
-  var matchedSlash = true;
-  // Track the state of characters (if any) we see before our first dot and
-  // after any path separator we find
-  var preDotState = 0;
-  for (var i = path.length - 1; i >= 0; --i) {
-    var code = path.charCodeAt(i);
-    if (code === 47 /*/*/) {
-        // If we reached a path separator that was not part of a set of path
-        // separators at the end of the string, stop now
-        if (!matchedSlash) {
-          startPart = i + 1;
-          break;
-        }
-        continue;
-      }
-    if (end === -1) {
-      // We saw the first non-path separator, mark this as the end of our
-      // extension
-      matchedSlash = false;
-      end = i + 1;
-    }
-    if (code === 46 /*.*/) {
-        // If this is our first dot, mark it as the start of our extension
-        if (startDot === -1)
-          startDot = i;
-        else if (preDotState !== 1)
-          preDotState = 1;
-    } else if (startDot !== -1) {
-      // We saw a non-dot and non-path separator before our dot, so we should
-      // have a good chance at having a non-empty extension
-      preDotState = -1;
-    }
-  }
-
-  if (startDot === -1 || end === -1 ||
-      // We saw a non-dot character immediately before the dot
-      preDotState === 0 ||
-      // The (right-most) trimmed path component is exactly '..'
-      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-    return '';
-  }
-  return path.slice(startDot, end);
-};
-
-function filter (xs, f) {
-    if (xs.filter) return xs.filter(f);
-    var res = [];
-    for (var i = 0; i < xs.length; i++) {
-        if (f(xs[i], i, xs)) res.push(xs[i]);
-    }
-    return res;
-}
-
-// String.prototype.substr - negative index don't work in IE8
-var substr = 'ab'.substr(-1) === 'b'
-    ? function (str, start, len) { return str.substr(start, len) }
-    : function (str, start, len) {
-        if (start < 0) start = str.length + start;
-        return str.substr(start, len);
-    }
 ;
-
-},{"process":"node_modules/process/browser.js"}],"app.js":[function(require,module,exports) {
+},{}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _Elements = _interopRequireDefault(require("./js/components/Elements"));
@@ -806,7 +503,7 @@ var _AddElement4 = _interopRequireDefault(require("./js/components/AddElement4")
 
 var _EditElement = _interopRequireDefault(require("./js/components/EditElement"));
 
-var _path = require("path");
+var _constants = require("constants");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1041,7 +738,7 @@ function deleteElement() {
 
 function getEditElement() {
   document.querySelector('#component1').addEventListener("click", function () {
-    if (event.target.classList.contains("geteditele")) {
+    if (event.tadrget.classList.contains("geteditele")) {
       var elementId = event.target.querySelector(".select_element_by_id_value").value;
 
       _apiActions.default.getRequest("https://localhost:44330/api/Elements/element/" + elementId, function (selement) {
@@ -1083,8 +780,161 @@ function editElement() {
       });
     }
   });
-}
-},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js","./js/components/AddElement2":"js/components/AddElement2.js","./js/components/AddElement3":"js/components/AddElement3.js","./js/components/AddElement4":"js/components/AddElement4.js","./js/components/EditElement":"js/components/EditElement.js","path":"node_modules/path-browserify/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+} //Highlights the group and period numbers on hover
+
+
+document.querySelector('#component1').addEventListener("mouseover", function () {
+  if (event.target.parentElement.classList.contains("ele")) {
+    var group = event.target.parentElement.querySelector(".groupnum").value;
+    var period = event.target.parentElement.querySelector(".periodnum").value;
+    var grouphighlight = document.getElementById("pl".concat(+group));
+    var periodhighlight = document.getElementById("g".concat(+period));
+    grouphighlight.style.color = "orange";
+    periodhighlight.style.color = "orange";
+  }
+});
+document.querySelector('#component1').addEventListener("mouseout", function () {
+  if (event.target.parentElement.classList.contains("ele")) {
+    var group = event.target.parentElement.querySelector(".groupnum").value;
+    var period = event.target.parentElement.querySelector(".periodnum").value;
+    var grouphighlight = document.getElementById("pl".concat(+group));
+    var periodhighlight = document.getElementById("g".concat(+period));
+    grouphighlight.style.color = "white";
+    periodhighlight.style.color = "white";
+  }
+});
+document.querySelector('#component1').addEventListener("mouseover", function () {
+  if (event.target.classList.contains("ele")) {
+    var group = event.target.querySelector(".groupnum").value;
+    var period = event.target.querySelector(".periodnum").value;
+    var grouphighlight = document.getElementById("pl".concat(+group));
+    var periodhighlight = document.getElementById("g".concat(+period));
+    grouphighlight.style.color = "orange";
+    periodhighlight.style.color = "orange";
+  }
+});
+document.querySelector('#component1').addEventListener("mouseout", function () {
+  if (event.target.classList.contains("ele")) {
+    var group = event.target.querySelector(".groupnum").value;
+    var period = event.target.querySelector(".periodnum").value;
+    var grouphighlight = document.getElementById("pl".concat(+group));
+    var periodhighlight = document.getElementById("g".concat(+period));
+    grouphighlight.style.color = "white";
+    periodhighlight.style.color = "white";
+  }
+});
+var app = document.getElementById('component1');
+var elements = document.getElementById('enter__Elements');
+elements.addEventListener('click', function () {
+  _apiActions.default.getRequest("https://localhost:44330/api/elements", function (elementlist) {
+    app.innerHTML = (0, _Elements.default)(elementlist);
+    document.querySelector('.navbar').style.display = "flex";
+  });
+}); //DarkTheme
+
+app.addEventListener('click', function () {
+  if (event.target.classList.contains("darktheme")) {
+    var darktheme = document.getElementById('darktheme');
+
+    if (darktheme.checked == true) {
+      document.querySelector('elements').style.backgroundColor = 'black';
+      var elecolor = document.querySelectorAll('ele');
+      elecolor.forEach(function (element) {
+        element.style.backgroundColor = 'black';
+      });
+      var AM = document.querySelectorAll('.Alkaline-Metal');
+      AM.forEach(function (element) {
+        element.style.outline = '2px solid red';
+        element.style.outlineOffset = '-2px';
+      });
+      var AEM = document.querySelectorAll('.AEM');
+      AEM.forEach(function (element) {
+        element.style.outline = '2px solid rgb(255, 115, 0)';
+        element.style.outlineOffset = '-2px';
+      });
+      var TM = document.querySelectorAll('.TM');
+      TM.forEach(function (element) {
+        element.style.outline = '2px solid rgb(255, 187, 0)';
+        element.style.outlineOffset = '-2px';
+      });
+      var PTM = document.querySelectorAll('.PTM');
+      PTM.forEach(function (element) {
+        element.style.outline = '2px solid rgb(238, 234, 1)';
+        element.style.outlineOffset = '-2px';
+      });
+      var M = document.querySelectorAll('.M');
+      M.forEach(function (element) {
+        element.style.outline = '2px solid rgb(138, 224, 9)';
+        element.style.outlineOffset = '-2px';
+      });
+      var PolyatomicNonmetal = document.querySelectorAll('.Polyatomic-Nonmetal');
+      PolyatomicNonmetal.forEach(function (element) {
+        element.style.outline = '2px solid rgb(1, 202, 135)';
+        element.style.outlineOffset = '-2px';
+      });
+      var DN = document.querySelectorAll('.DN');
+      DN.forEach(function (element) {
+        element.style.outline = '2px solid rgb(79, 117, 241)';
+        element.style.outlineOffset = '-2px';
+      });
+      var NG = document.querySelectorAll('.Noble-Gas');
+      NG.forEach(function (element) {
+        element.style.outline = '2px solid purple';
+        element.style.outlineOffset = '-2px';
+      });
+      var L = document.querySelectorAll('.L');
+      L.forEach(function (element) {
+        element.style.outline = '2px solid rgb(247, 201, 146)';
+        element.style.outlineOffset = '-2px';
+      });
+      var A = document.querySelectorAll('.A');
+      A.forEach(function (element) {
+        element.style.outline = '2px solid rgb(176, 176, 245)';
+        element.style.outlineOffset = '-2px';
+      });
+      var UP = document.querySelectorAll('.UP');
+      UP.forEach(function (element) {
+        element.style.outline = '2px solid rgb(78, 129, 78)';
+        element.style.outlineOffset = '-2px';
+      });
+    }
+
+    if (darktheme.checked == false) {
+      document.querySelector('elements').style.backgroundColor = 'white';
+
+      var _elecolor = document.querySelectorAll('ele');
+
+      _elecolor.forEach(function (element) {
+        element.style.backgroundColor = null;
+      });
+    }
+  }
+}); //Hide NON Elements
+
+app.addEventListener('click', function () {
+  if (event.target.classList.contains("HideNON")) {
+    var HideNON = document.getElementById('HideNON');
+    console.log(HideNON.value);
+
+    if (HideNON.checked == true) {
+      var NON = document.querySelectorAll('.NON');
+      NON.forEach(function (element) {
+        element.style.visibility = 'hidden';
+      });
+    }
+
+    if (HideNON.checked == false) {
+      var _NON = document.querySelectorAll('.NON');
+
+      _NON.forEach(function (element) {
+        element.style.visibility = 'visible';
+      });
+    }
+
+    console.log(HideNON.value);
+  }
+});
+},{"./js/components/Elements":"js/components/Elements.js","./js/api/api-actions":"js/api/api-actions.js","./js/components/ElementByClass":"js/components/ElementByClass.js","./js/components/Element":"js/components/Element.js","./js/components/AddElement":"js/components/AddElement.js","./js/components/AddElement2":"js/components/AddElement2.js","./js/components/AddElement3":"js/components/AddElement3.js","./js/components/AddElement4":"js/components/AddElement4.js","./js/components/EditElement":"js/components/EditElement.js","constants":"node_modules/constants-browserify/constants.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1112,7 +962,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58311" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57166" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

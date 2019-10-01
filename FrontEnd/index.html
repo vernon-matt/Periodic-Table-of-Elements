@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar" style="display: none;">
         <navbutton id="nav__Elements">Elements</navbutton>
         <div class="dropdown">
           <navbutton class="dropbtn">Classes 
@@ -15,7 +15,7 @@
           </navbutton>
           <div class="dropdown-content">
             <navbutton class="select_element_by_class">Alkali Metal
-                    <input class='select_element_by_class_value' type='hidden' value="AM">
+                    <input class='select_element_by_class_value' type='hidden' value="Alkaline-Metal">
             </navbutton>
             <navbutton class="select_element_by_class">Alkaline Earth Metal
                     <input class='select_element_by_class_value' type='hidden' value="AEM">
@@ -30,13 +30,13 @@
                     <input class='select_element_by_class_value' type='hidden' value="M">
             </navbutton>
             <navbutton class="select_element_by_class">Polyatomic Nonmetal
-                <input class='select_element_by_class_value' type='hidden' value="PN">
+                <input class='select_element_by_class_value' type='hidden' value="Polyatomic-Nonmetal">
             </navbutton>
             <navbutton class="select_element_by_class">Diatomic Nonmetal
                 <input class='select_element_by_class_value' type='hidden' value="DN">
             </navbutton>  
             <navbutton class="select_element_by_class">Noble Gas
-                <input class='select_element_by_class_value' type='hidden' value="NG">
+                <input class='select_element_by_class_value' type='hidden' value="Noble-Gas">
             </navbutton> 
             <navbutton class="select_element_by_class">Unknown Properties
                 <input class='select_element_by_class_value' type='hidden' value="UP">
@@ -46,7 +46,15 @@
         <navbutton id="navAbout">About</navbutton>  
       </div>
     <div id="component1">
-      <h2>A Welcoming Page</h2>
+      <div style="background: url(http://eskipaper.com/images/outer-space-wallpaper-9.jpg); background-size: cover; width: 100vw; height: 100vh; background-position-y: 50%;">
+      <enterpage style="display: flex; height:50vh; width: 100vw; justify-content: center; align-items: center; font-size: 40px;">The all in one periodic table of elements.</enterpage>
+      <enterbuttonscenter>
+      <enterbuttons>
+        <enterbutton id="enter__Elements">Open in Browser</enterbutton>
+        <enterbutton2>Download to Desktop</enterbutton2>
+      </enterbuttons>
+    </enterbuttonscenter>
+      </div>
     </div>
 </body>
 <script src="app.js"></script>

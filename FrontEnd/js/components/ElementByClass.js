@@ -1,5 +1,6 @@
 export default function ElementByClass(elementlist){
     return `
+    ${elementlist[0].class}
     <elements>  
         ${elementlist.map(element => {
         return `
