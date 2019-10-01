@@ -7,6 +7,7 @@ import AddElement2 from "./js/components/AddElement2";
 import AddElement3 from "./js/components/AddElement3";
 import AddElement4 from "./js/components/AddElement4";
 import EditElement from"./js/components/EditElement";
+import { ENETRESET } from "constants";
 
 
 pageBuild();
@@ -286,6 +287,148 @@ function editElement() {
         }
     })
 }
+
+//Highlights the group and period numbers on hover
+document.querySelector('#component1').addEventListener("mouseover", function() {
+    if (event.target.parentElement.classList.contains("ele")) {
+    const group = event.target.parentElement.querySelector(".groupnum").value;
+    const period = event.target.parentElement.querySelector(".periodnum").value;
+    const grouphighlight = document.getElementById(`pl${+group}`);
+    const periodhighlight = document.getElementById(`g${+period}`);
+    grouphighlight.style.color = "orange";
+    periodhighlight.style.color = "orange"
+}})
+document.querySelector('#component1').addEventListener("mouseout", function() {
+    if (event.target.parentElement.classList.contains("ele")) {
+    const group = event.target.parentElement.querySelector(".groupnum").value;
+    const period = event.target.parentElement.querySelector(".periodnum").value;
+    const grouphighlight = document.getElementById(`pl${+group}`);
+    const periodhighlight = document.getElementById(`g${+period}`);
+    grouphighlight.style.color = "white";
+    periodhighlight.style.color = "white"
+}})
+document.querySelector('#component1').addEventListener("mouseover", function() {
+    if (event.target.classList.contains("ele")) {
+    const group = event.target.querySelector(".groupnum").value;
+    const period = event.target.querySelector(".periodnum").value;
+    const grouphighlight = document.getElementById(`pl${+group}`);
+    const periodhighlight = document.getElementById(`g${+period}`);
+    grouphighlight.style.color = "orange";
+    periodhighlight.style.color = "orange"
+}})
+document.querySelector('#component1').addEventListener("mouseout", function() {
+    if (event.target.classList.contains("ele")) {
+    const group = event.target.querySelector(".groupnum").value;
+    const period = event.target.querySelector(".periodnum").value;
+    const grouphighlight = document.getElementById(`pl${+group}`);
+    const periodhighlight = document.getElementById(`g${+period}`);
+    grouphighlight.style.color = "white";
+    periodhighlight.style.color = "white"
+}})
+
+const app = document.getElementById('component1');
+const elements = document.getElementById('enter__Elements');
+elements.addEventListener('click', function(){
+    ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
+        app.innerHTML = Elements(elementlist);
+        document.querySelector('.navbar').style.display = "flex";
+    })
+})
+
+//DarkTheme
+app.addEventListener('click', function(){
+if (event.target.classList.contains("darktheme")) {
+const darktheme = document.getElementById('darktheme');
+if (darktheme.checked == true){
+    document.querySelector('elements').style.backgroundColor = 'black'
+    const elecolor = document.querySelectorAll('ele');
+    elecolor.forEach(element => {
+        element.style.backgroundColor = 'black';
+    })
+    const AM = document.querySelectorAll('.Alkaline-Metal');
+    AM.forEach(element => {
+        element.style.outline = '2px solid red';
+        element.style.outlineOffset = '-2px';
+    })
+    const AEM = document.querySelectorAll('.AEM');
+    AEM.forEach(element => {
+        element.style.outline = '2px solid rgb(255, 115, 0)';
+        element.style.outlineOffset = '-2px';
+    })
+    const TM = document.querySelectorAll('.TM');
+    TM.forEach(element => {
+        element.style.outline = '2px solid rgb(255, 187, 0)';
+        element.style.outlineOffset = '-2px';
+    })
+    const PTM = document.querySelectorAll('.PTM');
+    PTM.forEach(element => {
+        element.style.outline = '2px solid rgb(238, 234, 1)';
+        element.style.outlineOffset = '-2px';
+    })
+    const M = document.querySelectorAll('.M');
+    M.forEach(element => {
+        element.style.outline = '2px solid rgb(138, 224, 9)';
+        element.style.outlineOffset = '-2px';
+    })
+    const PolyatomicNonmetal = document.querySelectorAll('.Polyatomic-Nonmetal');
+    PolyatomicNonmetal.forEach(element => {
+        element.style.outline = '2px solid rgb(1, 202, 135)';
+        element.style.outlineOffset = '-2px';
+    })
+    const DN = document.querySelectorAll('.DN');
+    DN.forEach(element => {
+        element.style.outline = '2px solid rgb(79, 117, 241)';
+        element.style.outlineOffset = '-2px';
+    })
+    const NG = document.querySelectorAll('.Noble-Gas');
+    NG.forEach(element => {
+        element.style.outline = '2px solid purple';
+        element.style.outlineOffset = '-2px';
+    })
+    const L = document.querySelectorAll('.L');
+    L.forEach(element => {
+        element.style.outline = '2px solid rgb(247, 201, 146)';
+        element.style.outlineOffset = '-2px';
+    })
+    const A = document.querySelectorAll('.A');
+    A.forEach(element => {
+        element.style.outline = '2px solid rgb(176, 176, 245)';
+        element.style.outlineOffset = '-2px';
+    })
+    const UP = document.querySelectorAll('.UP');
+    UP.forEach(element => {
+        element.style.outline = '2px solid rgb(78, 129, 78)';
+        element.style.outlineOffset = '-2px';
+    })
+
+}
+    if (darktheme.checked == false) {
+        document.querySelector('elements').style.backgroundColor = 'white'
+        const elecolor = document.querySelectorAll('ele');
+        elecolor.forEach(element => {
+            element.style.backgroundColor = null;
+        })
+}}})
+
+//Hide NON Elements
+app.addEventListener('click', function(){
+    if (event.target.classList.contains("HideNON")) {
+    let HideNON = document.getElementById('HideNON');
+    console.log(HideNON.value)
+    if (HideNON.checked == true){
+        const NON = document.querySelectorAll('.NON');
+        NON.forEach(element => {
+            element.style.visibility = 'hidden';
+        })
+    }
+    if (HideNON.checked == false){
+        const NON = document.querySelectorAll('.NON');
+        NON.forEach(element => {
+        element.style.visibility = 'visible';
+        })
+    }
+    console.log(HideNON.value)
+}})
 
 
     

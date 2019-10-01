@@ -16,6 +16,9 @@ h2 {
 body {
     background-color: rgb(41, 41, 41);
     color: white;
+    position: relative;
+    top: 0;
+    width: 100vw;
 }
 elements {
     padding-top:1vh;
@@ -39,6 +42,7 @@ ele {
     text-align: center;
     color: white;
     box-shadow: .5px .7px 5px black;
+    cursor: pointer;
 }
 
 ele:hover {
@@ -169,7 +173,7 @@ elename {
     
 }
 
-.AM {
+.Alkaline-Metal {
     background-color: red;
 }
 
@@ -189,7 +193,7 @@ elename {
     background-color: rgb(138, 224, 9);
 }
 
-.PN {
+.Polyatomic-Nonmetal {
     background-color: rgb(1, 202, 135);
 }
 
@@ -197,7 +201,7 @@ elename {
     background-color: rgb(79, 117, 241);
 }
 
-.NG {
+.Noble-Gas {
     background-color: purple;
 }
 
@@ -235,6 +239,7 @@ elename {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    cursor: pointer;
   }
   
   .dropdown {
@@ -289,13 +294,14 @@ elename {
 selement {
     max-width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
 
 img {
     width: 35vw;
+    height: 50vh;
 }
 
 sele {
@@ -372,7 +378,7 @@ selement2 {
     justify-content: space-around;
     padding-top: 10vh;
     align-items: center;
-    max-width: 100vw;
+    max-width: 100vw !important;
     padding-bottom: 10vh;
 }
 
@@ -386,6 +392,7 @@ selebuttons{
     width: 35vw;
     display: flex;
     justify-content: space-around;
+    padding-top: 16vh;
 }
 
 button {
@@ -444,5 +451,118 @@ subsele {
     width: 100vw;
     padding-top: 5vh;
 }
+
+asp {
+    display: flex;
+    flex-direction: column;
+    height:110vh;
+    justify-content: space-between;
+}
+
+enterpage {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+enterbuttonscenter {
+    display: flex;
+    justify-content: center;
+}
+
+enterbuttons {
+    display: flex;
+    width: 60vw;
+    text-align: center;
+    justify-content: space-around;
+    padding-top: 10vh;
+    height: 7vh;
+}
+
+enterbutton {
+    width: 175px;
+    background-color: rgb(60, 130, 243);
+    padding: 10 35;
+    border-radius: 7px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+enterbutton2 {
+    width: 175px;
+    background-color: rgb(37, 181, 107);
+    padding: 10 35;
+    border-radius: 7px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+enterbutton2:hover, enterbutton:hover{
+    cursor: pointer;
+    margin-top: 1px;
+    transition: 100ms;
+}
+
+.fixedseleheader {
+    position: sticky;
+    top:0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 /*# sourceMappingURL=/stylez.8b529e3a.css.map */
