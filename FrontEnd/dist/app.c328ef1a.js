@@ -553,7 +553,7 @@ function infoBox() {
       var elementId = event.target.querySelector(".select_element_by_id_value").value;
       console.log(elementId);
 
-      _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements/element/" + elementId, function (selement) {
+      _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements/element/" + elementId, function (selement) {
         document.getElementById('InfoBox').innerHTML = (0, _InfoBox3.default)(selement);
       });
     }
@@ -565,7 +565,7 @@ function elements() {
   var app = document.getElementById('component1');
   var elements = document.getElementById('nav__Elements');
   elements.addEventListener('click', function () {
-    _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements", function (elementlist) {
+    _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements", function (elementlist) {
       app.innerHTML = (0, _Elements.default)(elementlist);
     });
   });
@@ -576,7 +576,7 @@ function elements() {
 function delReturnsElements() {
   var app = document.getElementById('component1');
 
-  _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements", function (elementlist) {
+  _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements", function (elementlist) {
     app.innerHTML = (0, _Elements.default)(elementlist);
   });
 }
@@ -589,7 +589,7 @@ function elementByClass() {
       var _element = event.target.querySelector(".select_element_by_class_value").value;
       console.log(_element);
 
-      _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements/" + _element, function (elementlist) {
+      _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements/" + _element, function (elementlist) {
         document.getElementById('component1').innerHTML = (0, _ElementByClass.default)(elementlist);
       });
     }
@@ -604,7 +604,7 @@ function element() {
       var elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
       console.log(elementId);
 
-      _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements/element/" + elementId, function (selement) {
+      _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements/element/" + elementId, function (selement) {
         document.getElementById('component1').innerHTML = (0, _Element.default)(selement);
       });
     }
@@ -617,7 +617,7 @@ function addElement() {
     if (event.target.classList.contains("add_element")) {
       var elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
 
-      _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements/element/" + elementId, function (selement) {
+      _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements/element/" + elementId, function (selement) {
         document.getElementById('component1').innerHTML = (0, _AddElement.default)(selement);
       });
     }
@@ -639,7 +639,7 @@ function addElement2() {
         periodId: periodid
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _AddElement2.default)(selement);
       });
     }
@@ -665,7 +665,7 @@ function addElement3() {
         name: name
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _AddElement3.default)(selement);
       });
     }
@@ -695,7 +695,7 @@ function addElement4() {
         atomicWeight: atomweight
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _AddElement4.default)(selement);
       });
     }
@@ -729,7 +729,7 @@ function createElement() {
         image: image
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _Element.default)(selement);
       });
     }
@@ -756,7 +756,7 @@ function deleteElement() {
         image: ""
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         delReturnsElements();
       });
     }
@@ -769,7 +769,7 @@ function getEditElement() {
     if (event.tadrget.classList.contains("geteditele")) {
       var elementId = event.target.querySelector(".select_element_by_id_value").value;
 
-      _apiActions.default.getRequest("https://192.168.0.32:5000/api/Elements/element/" + elementId, function (selement) {
+      _apiActions.default.getRequest("https://192.168.0.32:5001/api/Elements/element/" + elementId, function (selement) {
         return document.getElementById('component1').innerHTML = (0, _EditElement.default)(selement);
       });
     }
@@ -803,7 +803,7 @@ function editElement() {
         image: image
       };
 
-      _apiActions.default.putRequest("https://192.168.0.32:5000/api/Elements/" + elementId, data, function (selement) {
+      _apiActions.default.putRequest("https://192.168.0.32:5001/api/Elements/" + elementId, data, function (selement) {
         document.getElementById('component1').innerHTML = (0, _Element.default)(selement);
       });
     }
@@ -854,7 +854,7 @@ document.querySelector('#component1').addEventListener("mouseout", function () {
 var app = document.getElementById('component1');
 var elements = document.getElementById('enter__Elements');
 elements.addEventListener('click', function () {
-  _apiActions.default.getRequest("https://192.168.0.32:5000/api/elements", function (elementlist) {
+  _apiActions.default.getRequest("https://192.168.0.32:5001/api/elements", function (elementlist) {
     app.innerHTML = (0, _Elements.default)(elementlist);
     document.querySelector('.navbar').style.display = "flex";
   });
