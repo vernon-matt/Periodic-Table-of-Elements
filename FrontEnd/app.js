@@ -42,7 +42,7 @@ function infoBox() {
         if (event.target.classList.contains("ele")) {
             const elementId = event.target.querySelector(".select_element_by_id_value").value;
             console.log(elementId)
-            ApiAction.getRequest("https://localhost:44330/api/elements/element/"+ elementId,
+            ApiAction.getRequest("https://192.168.0.32:5000/api/elements/element/"+ elementId,
               selement => {
                   document.getElementById('InfoBox').innerHTML = InfoBox(selement);
         }
@@ -56,7 +56,7 @@ function elements(){
     const app = document.getElementById('component1');
     const elements = document.getElementById('nav__Elements');
     elements.addEventListener('click', function(){
-        ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
+        ApiAction.getRequest("https://192.168.0.32:5000/api/elements", elementlist => {
             app.innerHTML = Elements(elementlist);
         })
     })
@@ -65,7 +65,7 @@ function elements(){
 //Returns All Elements Upon Delete
 function delReturnsElements(){
     const app = document.getElementById('component1');
-        ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
+        ApiAction.getRequest("https://192.168.0.32:5000/api/elements", elementlist => {
             app.innerHTML = Elements(elementlist);
         })};
   
@@ -75,7 +75,7 @@ function elementByClass(){
         if (event.target.classList.contains("select_element_by_class")) {
           const element = event.target.querySelector(".select_element_by_class_value").value;
           console.log(element)
-          ApiAction.getRequest("https://localhost:44330/api/elements/"+ element,
+          ApiAction.getRequest("https://192.168.0.32:5000/api/elements/"+ element,
             elementlist => {
                 document.getElementById('component1').innerHTML = ElementByClass(elementlist);
             },           
@@ -90,7 +90,7 @@ function element(){
         if (event.target.classList.contains("select_element_by_id")) {
           const elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
           console.log(elementId)
-          ApiAction.getRequest("https://localhost:44330/api/elements/element/"+ elementId,
+          ApiAction.getRequest("https://192.168.0.32:5000/api/elements/element/"+ elementId,
             selement => {
                 document.getElementById('component1').innerHTML = Element(selement);
             },           
@@ -104,7 +104,7 @@ function addElement(){
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.target.classList.contains("add_element")) {
             const elementId = event.target.parentElement.querySelector(".select_element_by_id_value").value;
-            ApiAction.getRequest("https://localhost:44330/api/elements/element/"+ elementId,
+            ApiAction.getRequest("https://192.168.0.32:5000/api/elements/element/"+ elementId,
             selement => {
                 document.getElementById('component1').innerHTML = AddElement(selement);
             },
@@ -127,7 +127,7 @@ function addElement2(){
                 groupId: groupid,
                 periodId: periodid
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                 document.getElementById('component1').innerHTML = AddElement2(selement);
             },
@@ -154,7 +154,7 @@ function addElement3(){
                 symbol: sym,
                 name: name
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                 document.getElementById('component1').innerHTML = AddElement3(selement);
             },
@@ -185,7 +185,7 @@ function addElement4(){
                 atomicNumber: atomnumber,
                 atomicWeight: atomweight
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                 document.getElementById('component1').innerHTML = AddElement4(selement);
             },
@@ -220,7 +220,7 @@ function createElement(){
                 description: description,
                 image: image
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                 document.getElementById('component1').innerHTML = Element(selement);
             },
@@ -248,7 +248,7 @@ function deleteElement(){
                 description: "",
                 image: "",
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                delReturnsElements();
             },
@@ -262,7 +262,7 @@ function getEditElement() {
     document.querySelector('#component1').addEventListener("click", function() {
         if (event.tadrget.classList.contains("geteditele")) {
             const elementId = event.target.querySelector(".select_element_by_id_value").value;
-            ApiAction.getRequest("https://localhost:44330/api/Elements/element/"+ elementId,
+            ApiAction.getRequest("https://192.168.0.32:5000/api/Elements/element/"+ elementId,
             selement=>
             document.getElementById('component1').innerHTML = EditElement(selement)
             )
@@ -296,7 +296,7 @@ function editElement() {
                 description: description,
                 image: image
             }
-            ApiAction.putRequest("https://localhost:44330/api/Elements/"+ elementId, data,
+            ApiAction.putRequest("https://192.168.0.32:5000/api/Elements/"+ elementId, data,
             selement => {
                 document.getElementById('component1').innerHTML = Element(selement);
             },
@@ -346,7 +346,7 @@ document.querySelector('#component1').addEventListener("mouseout", function() {
 const app = document.getElementById('component1');
 const elements = document.getElementById('enter__Elements');
 elements.addEventListener('click', function(){
-    ApiAction.getRequest("https://localhost:44330/api/elements", elementlist => {
+    ApiAction.getRequest("https://192.168.0.32:5000/api/elements", elementlist => {
         app.innerHTML = Elements(elementlist);
         document.querySelector('.navbar').style.display = "flex";
     })
